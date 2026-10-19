@@ -1,0 +1,1349 @@
+{
+  "custom": {
+    "sldUsable": false,
+    "sldGridState": "UNKNOWN",
+    "sldCB1Position": "UNKNOWN",
+    "sldCB1Tripped": false,
+    "sldCB1State": "UNKNOWN",
+    "sldBusState": "UNKNOWN",
+    "sldPVState": "UNKNOWN",
+    "sldModelState": "UNKNOWN",
+    "sldGridColor": "#B45309",
+    "sldBusColor": "#B45309",
+    "sldCB1Color": "#B45309",
+    "sldPVColor": "#B45309"
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 760
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 50,
+          "rotate": {
+            "anchor": "62% -269%"
+          },
+          "width": 340,
+          "x": 420,
+          "y": 110
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"Solar output: \" + numberFormat({[default]Substation/Measurements/PV_AC_Power_kW}, \"#,##0\") + \" kW\", \"Solar output: unavailable\")"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"#0F172A\", \"#B45309\")"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "20px",
+            "fontWeight": "600px",
+            "color": "#B45309"
+          },
+          "text": "Solar output: unavailable"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 50,
+          "width": 340,
+          "x": 40,
+          "y": 180
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"Bus voltage: \" + numberFormat({[default]Substation/Measurements/Bus_Voltage_kV}, \"0.00\") + \" kV\", \"Bus voltage: unavailable\")"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"#0F172A\", \"#B45309\")"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "20px",
+            "fontWeight": "600px",
+            "color": "#B45309"
+          },
+          "text": "Bus voltage: unavailable"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 50,
+          "width": 340,
+          "x": 420,
+          "y": 180
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"T1 loading: \" + numberFormat({[default]Substation/Measurements/T1_Loading_pct}, \"0.0\") + \" %\", \"T1 loading: unavailable\")"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"#0F172A\", \"#B45309\")"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "20px",
+            "fontWeight": "600px",
+            "color": "#B45309"
+          },
+          "text": "T1 loading: unavailable"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 50,
+          "width": 340,
+          "x": 40,
+          "y": 100
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"Grid (+import): \" + numberFormat({[default]Substation/Measurements/Grid_P_kW}, \"#,##0\") + \" kW\", \"Grid (+import): unavailable\")"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"#0F172A\", \"#B45309\")"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "20px",
+            "fontWeight": "600px",
+            "color": "#B45309"
+          },
+          "text": "Grid (+import): unavailable"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 50,
+          "width": 720,
+          "x": 40,
+          "y": 20
+        },
+        "props": {
+          "style": {
+            "fontSize": "24px"
+          },
+          "text": "115 kV Substation — Live Overview"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Drawing"
+        },
+        "position": {
+          "height": 310,
+          "width": 720,
+          "x": 40,
+          "y": 300
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "fontSize": "11",
+                      "id": "diagram_heading",
+                      "name": "diagram_heading",
+                      "text": "LIVE ELECTRICAL TOPOLOGY - DATA UNAVAILABLE",
+                      "type": "text",
+                      "x": "8",
+                      "y": "14",
+                      "fill": {
+                        "paint": "#B45309"
+                      }
+                    },
+                    {
+                      "elements": [
+                        {
+                          "d": "M 66 84 H 190",
+                          "id": "l1_conductor",
+                          "name": "l1_conductor",
+                          "type": "path",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "3"
+                          }
+                        },
+                        {
+                          "d": "M 226 84 H 272",
+                          "id": "cb1_to_t1",
+                          "name": "cb1_to_t1",
+                          "type": "path",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "3"
+                          }
+                        }
+                      ],
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "id": "upstream_path",
+                      "name": "upstream_path",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#64748b",
+                        "width": "3"
+                      },
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "cx": "46",
+                          "cy": "84",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "name": "circle",
+                          "r": "20",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "circle"
+                        },
+                        {
+                          "d": "M 35 84 C 39 72 43 72 47 84 C 51 96 55 96 59 84",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "name": "path",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2"
+                          },
+                          "type": "path"
+                        },
+                        {
+                          "fontSize": "14",
+                          "name": "text",
+                          "text": "GRID",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "46",
+                          "y": "42"
+                        },
+                        {
+                          "fontSize": "13",
+                          "name": "text",
+                          "text": "115 kV",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "46",
+                          "y": "126"
+                        }
+                      ],
+                      "id": "grid_source",
+                      "name": "grid_source",
+                      "type": "group"
+                    },
+                    {
+                      "fontSize": "13",
+                      "id": "line_rating",
+                      "name": "line_rating",
+                      "text": "L1 · 5 km",
+                      "textAnchor": "middle",
+                      "type": "text",
+                      "x": "128",
+                      "y": "62"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "height": "36",
+                          "name": "rect",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "rect",
+                          "width": "36",
+                          "x": "190",
+                          "y": "66"
+                        },
+                        {
+                          "fontSize": "14",
+                          "name": "text",
+                          "text": "CB1",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "208",
+                          "y": "48"
+                        },
+                        {
+                          "name": "cb1_blade",
+                          "type": "path",
+                          "d": "",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "3"
+                          }
+                        },
+                        {
+                          "name": "cb1_unknown",
+                          "type": "text",
+                          "text": "?",
+                          "x": "208",
+                          "y": "91",
+                          "textAnchor": "middle",
+                          "fontSize": "21",
+                          "fill": {
+                            "paint": "#B45309"
+                          },
+                          "opacity": "1"
+                        },
+                        {
+                          "name": "cb1_position_text",
+                          "type": "text",
+                          "text": "UNKNOWN",
+                          "x": "208",
+                          "y": "122",
+                          "textAnchor": "middle",
+                          "fontSize": "10",
+                          "fill": {
+                            "paint": "#B45309"
+                          }
+                        }
+                      ],
+                      "id": "cb1_symbol",
+                      "name": "cb1_symbol",
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "cx": "292",
+                          "cy": "84",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "name": "circle",
+                          "r": "20",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "circle"
+                        },
+                        {
+                          "cx": "316",
+                          "cy": "84",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "name": "circle",
+                          "r": "20",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "circle"
+                        },
+                        {
+                          "fontSize": "14",
+                          "name": "text",
+                          "text": "T1 · 20 MVA",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "304",
+                          "y": "44"
+                        },
+                        {
+                          "fontSize": "13",
+                          "name": "text",
+                          "text": "115 / 13.8 kV",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "304",
+                          "y": "132"
+                        }
+                      ],
+                      "id": "t1_symbol",
+                      "name": "t1_symbol",
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "d": "M 336 84 H 430",
+                          "id": "t1_to_bus",
+                          "name": "t1_to_bus",
+                          "type": "path"
+                        },
+                        {
+                          "d": "M 430 84 H 590",
+                          "id": "bus_to_load",
+                          "name": "bus_to_load",
+                          "type": "path"
+                        }
+                      ],
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "id": "main_lv_path",
+                      "name": "main_lv_path",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#B45309",
+                        "width": "3"
+                      },
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "d": "M 430 56 V 218",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "name": "path",
+                          "stroke": {
+                            "linecap": "round",
+                            "paint": "#B45309",
+                            "width": "6"
+                          },
+                          "type": "path"
+                        },
+                        {
+                          "cx": "430",
+                          "cy": "84",
+                          "fill": {
+                            "paint": "#B45309"
+                          },
+                          "name": "circle",
+                          "r": "4",
+                          "type": "circle"
+                        },
+                        {
+                          "cx": "430",
+                          "cy": "206",
+                          "fill": {
+                            "paint": "#B45309"
+                          },
+                          "name": "circle",
+                          "r": "4",
+                          "type": "circle"
+                        },
+                        {
+                          "fontSize": "14",
+                          "name": "text",
+                          "text": "13.8 kV bus",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "430",
+                          "y": "38"
+                        },
+                        {
+                          "name": "bus_state_text",
+                          "type": "text",
+                          "text": "BUS: UNKNOWN",
+                          "x": "455",
+                          "y": "178",
+                          "fontSize": "12",
+                          "fill": {
+                            "paint": "#B45309"
+                          }
+                        }
+                      ],
+                      "id": "bus_13_8",
+                      "name": "bus_13_8",
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "height": "42",
+                          "name": "rect",
+                          "rx": "3",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "rect",
+                          "width": "110",
+                          "x": "590",
+                          "y": "63"
+                        },
+                        {
+                          "fontSize": "14",
+                          "name": "text",
+                          "text": "LOAD1",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "645",
+                          "y": "89"
+                        },
+                        {
+                          "fontSize": "12",
+                          "name": "text",
+                          "text": "Data unavailable",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "645",
+                          "y": "132"
+                        }
+                      ],
+                      "id": "load_symbol",
+                      "name": "load_symbol",
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "d": "M 430 206 H 354",
+                          "id": "bus_to_t2",
+                          "name": "bus_to_t2",
+                          "type": "path"
+                        },
+                        {
+                          "d": "M 290 206 H 230",
+                          "id": "t2_to_pv",
+                          "name": "t2_to_pv",
+                          "type": "path"
+                        }
+                      ],
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "id": "solar_path",
+                      "name": "solar_path",
+                      "stroke": {
+                        "linecap": "round",
+                        "paint": "#B45309",
+                        "width": "3"
+                      },
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "cx": "334",
+                          "cy": "206",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "name": "circle",
+                          "r": "20",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "circle"
+                        },
+                        {
+                          "cx": "310",
+                          "cy": "206",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "name": "circle",
+                          "r": "20",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "circle"
+                        },
+                        {
+                          "fontSize": "14",
+                          "name": "text",
+                          "text": "T2 · 3 MVA",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "322",
+                          "y": "166"
+                        },
+                        {
+                          "fontSize": "13",
+                          "name": "text",
+                          "text": "13.8 / 0.69 kV",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "322",
+                          "y": "252"
+                        }
+                      ],
+                      "id": "t2_symbol",
+                      "name": "t2_symbol",
+                      "type": "group"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "height": "44",
+                          "name": "rect",
+                          "rx": "3",
+                          "stroke": {
+                            "paint": "#B45309",
+                            "width": "2.5"
+                          },
+                          "type": "rect",
+                          "width": "164",
+                          "x": "66",
+                          "y": "184"
+                        },
+                        {
+                          "fontSize": "13",
+                          "name": "text",
+                          "text": "PV1: UNKNOWN",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "148",
+                          "y": "202",
+                          "fill": {
+                            "paint": "#B45309"
+                          }
+                        },
+                        {
+                          "fontSize": "12",
+                          "name": "text",
+                          "text": "2 MW / 2.5 MVA",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "148",
+                          "y": "219"
+                        },
+                        {
+                          "fontSize": "13",
+                          "name": "text",
+                          "text": "0.69 kV AC",
+                          "textAnchor": "middle",
+                          "type": "text",
+                          "x": "148",
+                          "y": "252"
+                        }
+                      ],
+                      "id": "pv1_symbol",
+                      "name": "pv1_symbol",
+                      "type": "group"
+                    },
+                    {
+                      "fill": {
+                        "paint": "#64748b"
+                      },
+                      "fontSize": "10",
+                      "id": "diagram_note",
+                      "name": "diagram_note",
+                      "text": "Conductors: green energized | gray de-energized | amber unknown",
+                      "type": "text",
+                      "x": "8",
+                      "y": "277"
+                    },
+                    {
+                      "name": "diagram_scope",
+                      "type": "text",
+                      "x": "8",
+                      "y": "297",
+                      "fontSize": "10",
+                      "fill": {
+                        "paint": "#64748B"
+                      },
+                      "text": "Device text shows operating state; red = latched trip. Simulated system; illustrative ratings."
+                    }
+                  ],
+                  "fill": {
+                    "paint": "#334155"
+                  },
+                  "name": "group",
+                  "type": "group"
+                }
+              ],
+              "name": "import",
+              "type": "group"
+            }
+          ]
+        },
+        "type": "ia.shapes.svg",
+        "propConfig": {
+          "props.elements[0].elements[0].elements[1].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldGridColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[1].elements[1].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[6].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[9].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[2].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldGridColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[2].elements[1].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldGridColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[5].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[5].elements[1].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[10].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[10].elements[1].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[8].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[4].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldCB1Color}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[11].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldPVColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[7].elements[0].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[7].elements[1].fill.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[7].elements[2].fill.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[4].elements[2].d": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldCB1Position} = \"CLOSED\", \"M 190 84 H 226\", if({view.custom.sldCB1Position} = \"OPEN\", \"M 190 84 H 196 L 219 70 M 220 84 H 226\", \"\"))"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[4].elements[2].stroke.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldCB1Color}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[4].elements[3].opacity": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldCB1Position} = \"UNKNOWN\", \"1\", \"0\")"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[4].elements[4].text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldCB1State}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[4].elements[4].fill.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldCB1Color}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[11].elements[1].text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "\"PV1: \" + {view.custom.sldPVState}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[11].elements[1].fill.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldPVColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[7].elements[4].text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "\"BUS: \" + {view.custom.sldBusState}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[7].elements[4].fill.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldBusColor}"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[8].elements[2].text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, numberFormat({[default]Substation/Measurements/Load_P_kW}, \"#,##0\") + \" kW served\", \"Data unavailable\")"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[0].text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"LIVE ELECTRICAL TOPOLOGY\", \"LIVE ELECTRICAL TOPOLOGY - DATA UNAVAILABLE\")"
+              }
+            }
+          },
+          "props.elements[0].elements[0].elements[0].fill.paint": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"#0F172A\", \"#B45309\")"
+              }
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 30,
+          "width": 230,
+          "x": 40,
+          "y": 250
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "\"CB1: \" + {view.custom.sldCB1State}"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldCB1Color}"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "16px",
+            "color": "#B45309"
+          },
+          "text": "CB1: UNKNOWN"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 30,
+          "width": 230,
+          "x": 280,
+          "y": 250
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "\"PV: \" + {view.custom.sldPVState}"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "{view.custom.sldPVColor}"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "16px",
+            "color": "#B45309"
+          },
+          "text": "PV: UNKNOWN"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 30,
+          "width": 230,
+          "x": 520,
+          "y": 250
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "\"Model: \" + {view.custom.sldModelState}"
+              }
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldModelState} = \"VALID\", \"#16805D\", if({view.custom.sldModelState} = \"INVALID\", \"#B91C1C\", \"#B45309\"))"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": "16px",
+            "color": "#B45309"
+          },
+          "text": "Model: UNKNOWN"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page=\"/overview\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 40,
+          "y": 700
+        },
+        "props": {
+          "text": "Overview"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page=\"/controls\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 225,
+          "y": 700
+        },
+        "props": {
+          "text": "Controls"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page=\"/alarms\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_1"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 410,
+          "y": 700
+        },
+        "props": {
+          "text": "Alarms"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page=\"/trends\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_2"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 595,
+          "y": 700
+        },
+        "props": {
+          "text": "Trends"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 35,
+          "width": 720,
+          "x": 40,
+          "y": 650
+        },
+        "propConfig": {
+          "props.style.color": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"#16805D\", \"#B45309\")"
+              }
+            }
+          },
+          "props.text": {
+            "binding": {
+              "type": "expr",
+              "config": {
+                "expression": "if({view.custom.sldUsable}, \"Telemetry: HEALTHY\", \"Telemetry: CHECK ALARMS - data unavailable or invalid\")"
+              }
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 14,
+            "color": "#B45309"
+          },
+          "text": "Telemetry: CHECK ALARMS - data unavailable or invalid"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page=\"/command-history\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_12"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 595,
+          "y": 648
+        },
+        "props": {
+          "text": "Command History"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  },
+  "propConfig": {
+    "custom.sldUsable": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if(if(isGood({[default]Substation/Health/Telemetry_Usable}), !isNull({[default]Substation/Health/Telemetry_Usable}), false) && if(isGood({[default]Substation/Health/Communications_Healthy}), !isNull({[default]Substation/Health/Communications_Healthy}), false) && if(isGood({[default]Substation/Status/Model_Valid}), !isNull({[default]Substation/Status/Model_Valid}), false) && if(isGood({[default]Substation/Status/Grid_Available}), !isNull({[default]Substation/Status/Grid_Available}), false) && if(isGood({[default]Substation/Status/CB1_Closed}), !isNull({[default]Substation/Status/CB1_Closed}), false) && if(isGood({[default]Substation/Status/Trip_Latched}), !isNull({[default]Substation/Status/Trip_Latched}), false) && if(isGood({[default]Substation/Status/PV_Running}), !isNull({[default]Substation/Status/PV_Running}), false) && if(isGood({[default]Substation/Status/PV_Tripped}), !isNull({[default]Substation/Status/PV_Tripped}), false) && if(isGood({[default]Substation/Status/Bus_Energized}), !isNull({[default]Substation/Status/Bus_Energized}), false) && if(isGood({[default]Substation/Measurements/Grid_P_kW}), !isNull({[default]Substation/Measurements/Grid_P_kW}), false) && if(isGood({[default]Substation/Measurements/PV_AC_Power_kW}), !isNull({[default]Substation/Measurements/PV_AC_Power_kW}), false) && if(isGood({[default]Substation/Measurements/Bus_Voltage_kV}), !isNull({[default]Substation/Measurements/Bus_Voltage_kV}), false) && if(isGood({[default]Substation/Measurements/T1_Loading_pct}), !isNull({[default]Substation/Measurements/T1_Loading_pct}), false) && if(isGood({[default]Substation/Measurements/Load_P_kW}), !isNull({[default]Substation/Measurements/Load_P_kW}), false), {[default]Substation/Health/Telemetry_Usable} && {[default]Substation/Health/Communications_Healthy} && {[default]Substation/Status/Model_Valid}, false)"
+        }
+      }
+    },
+    "custom.sldGridState": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldUsable}, if({[default]Substation/Status/Grid_Available}, \"AVAILABLE\", \"UNAVAILABLE\"), \"UNKNOWN\")"
+        }
+      }
+    },
+    "custom.sldCB1Position": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldUsable}, if({[default]Substation/Status/CB1_Closed}, \"CLOSED\", \"OPEN\"), \"UNKNOWN\")"
+        }
+      }
+    },
+    "custom.sldCB1Tripped": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldUsable}, {[default]Substation/Status/Trip_Latched}, false)"
+        }
+      }
+    },
+    "custom.sldCB1State": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldCB1Tripped}, \"TRIPPED / \" + {view.custom.sldCB1Position}, {view.custom.sldCB1Position})"
+        }
+      }
+    },
+    "custom.sldBusState": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldUsable}, if({[default]Substation/Status/Bus_Energized}, \"ENERGIZED\", \"DE-ENERGIZED\"), \"UNKNOWN\")"
+        }
+      }
+    },
+    "custom.sldPVState": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldUsable}, if({[default]Substation/Status/PV_Tripped}, \"TRIPPED\", if({[default]Substation/Status/PV_Running}, \"RUNNING\", \"STOPPED\")), \"UNKNOWN\")"
+        }
+      }
+    },
+    "custom.sldModelState": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if(if(isGood({[default]Substation/Health/Communications_Healthy}), !isNull({[default]Substation/Health/Communications_Healthy}), false) && if(isGood({[default]Substation/Status/Model_Valid}), !isNull({[default]Substation/Status/Model_Valid}), false), if({[default]Substation/Health/Communications_Healthy}, if({[default]Substation/Status/Model_Valid}, \"VALID\", \"INVALID\"), \"UNKNOWN\"), \"UNKNOWN\")"
+        }
+      }
+    },
+    "custom.sldGridColor": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldGridState} = \"AVAILABLE\", \"#16805D\", if({view.custom.sldGridState} = \"UNAVAILABLE\", \"#94A3B8\", \"#B45309\"))"
+        }
+      }
+    },
+    "custom.sldBusColor": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldBusState} = \"ENERGIZED\", \"#16805D\", if({view.custom.sldBusState} = \"DE-ENERGIZED\", \"#94A3B8\", \"#B45309\"))"
+        }
+      }
+    },
+    "custom.sldCB1Color": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldCB1Tripped}, \"#B91C1C\", if({view.custom.sldCB1Position} = \"CLOSED\", \"#16805D\", if({view.custom.sldCB1Position} = \"OPEN\", \"#94A3B8\", \"#B45309\")))"
+        }
+      }
+    },
+    "custom.sldPVColor": {
+      "binding": {
+        "type": "expr",
+        "config": {
+          "expression": "if({view.custom.sldPVState} = \"TRIPPED\", \"#B91C1C\", if({view.custom.sldPVState} = \"RUNNING\", \"#16805D\", if({view.custom.sldPVState} = \"STOPPED\", \"#94A3B8\", \"#B45309\")))"
+        }
+      }
+    }
+  }
+}

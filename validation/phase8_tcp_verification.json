@@ -1,0 +1,46 @@
+{
+  "phase": 8,
+  "scope": "Actual Modbus TCP freeze-demo checks; no live Ignition",
+  "passed": true,
+  "passed_checks": 9,
+  "total_checks": 9,
+  "checks": [
+    {
+      "check": "TCP connects to the isolated freeze-demo server",
+      "passed": true
+    },
+    {
+      "check": "Normal telemetry and valid closed-breaker status remain compatible",
+      "passed": true
+    },
+    {
+      "check": "Heartbeat advances before the optional freeze",
+      "passed": true
+    },
+    {
+      "check": "Heartbeat stays frozen across later model updates",
+      "passed": true
+    },
+    {
+      "check": "Modbus setpoint writes still respond while heartbeat is frozen",
+      "passed": true
+    },
+    {
+      "check": "Other model telemetry changes to the cloudy scenario without heartbeat movement",
+      "passed": true
+    },
+    {
+      "check": "The freeze demo preserves read-only telemetry protection",
+      "passed": true
+    },
+    {
+      "check": "The original command commit protocol remains available",
+      "passed": true
+    },
+    {
+      "check": "Breaker opening still publishes valid isolated zeros with the intentionally frozen heartbeat",
+      "passed": true
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,313 @@
+{
+  "assembled_utc": "2026-10-19T20:17:32.160240+00:00",
+  "native_project_export": {
+    "original_name": "SubstationSCADA_20261020014401.zip",
+    "sha256": "a4b68c26e9e66db1c23c46e085c8582a1ef18b676643c8663ea67b000e767e89",
+    "modified": false
+  },
+  "tag_export": {
+    "original_name": "tags.json",
+    "snapshot_date": "2026-10-19",
+    "modified": false
+  },
+  "python_source": "Previously delivered and verified Phase 4/5/7/8 source packages; not a new byte-for-byte export of the Windows working directory.",
+  "test_harness_adaptations": [
+    "Phase 8 monitor path points to ignition/scripts.",
+    "Phase 11 audit path points to ignition/scripts, and uses the packaged current simulator ControlEngine and configuration instead of duplicate reference copies.",
+    "Phase 7 engine/TCP suite retains 63 current checks; seven pre-audit helper checks are superseded by the 34-test current audit suite."
+  ],
+  "source_files": [
+    {
+      "source": "phase8-install-check/phase4_powerflow.py",
+      "destination": "simulator/phase4_powerflow.py",
+      "source_sha256": "63e2bc267edca849edc47e5ca873dbec24b50616de6c971e8437fafe40b139e9",
+      "packaged_sha256": "63e2bc267edca849edc47e5ca873dbec24b50616de6c971e8437fafe40b139e9",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/modbus_points.py",
+      "destination": "simulator/modbus_points.py",
+      "source_sha256": "a9ea18e7573de3e4615fd9dc9ebffaacdbdc1be42af550bbc27309507aeabb37",
+      "packaged_sha256": "a9ea18e7573de3e4615fd9dc9ebffaacdbdc1be42af550bbc27309507aeabb37",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/phase5_modbus_server.py",
+      "destination": "simulator/phase5_modbus_server.py",
+      "source_sha256": "00982ad199e95df55d441ec15607243a521d386fe3284713c0d10b02974bdbda",
+      "packaged_sha256": "00982ad199e95df55d441ec15607243a521d386fe3284713c0d10b02974bdbda",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/phase5_client.py",
+      "destination": "simulator/phase5_client.py",
+      "source_sha256": "689f16b7a62f781002de302ceb591274d862aa65d7b6d10f348fc388952a843a",
+      "packaged_sha256": "689f16b7a62f781002de302ceb591274d862aa65d7b6d10f348fc388952a843a",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/phase7_control.py",
+      "destination": "simulator/phase7_control.py",
+      "source_sha256": "0d64c45f67b8ce47fa5673052c8b034b541f2cbc361913636e4d97b6068a4ef3",
+      "packaged_sha256": "0d64c45f67b8ce47fa5673052c8b034b541f2cbc361913636e4d97b6068a4ef3",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/phase7_fault.py",
+      "destination": "simulator/phase7_fault.py",
+      "source_sha256": "0c026baadd99671270e534accc550cc21a5e175e439d933f67272ab905d1af9f",
+      "packaged_sha256": "0c026baadd99671270e534accc550cc21a5e175e439d933f67272ab905d1af9f",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/phase7_modbus_server.py",
+      "destination": "simulator/phase7_modbus_server.py",
+      "source_sha256": "d86251e21a3078d62e66e407acee4bee7f389d07d26caf141d80c1c4b4c59715",
+      "packaged_sha256": "d86251e21a3078d62e66e407acee4bee7f389d07d26caf141d80c1c4b4c59715",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/phase7_client.py",
+      "destination": "simulator/phase7_client.py",
+      "source_sha256": "6c8b96b717f428cd8e750089f30129a79d46edd179cdae285f8fb995115b6f08",
+      "packaged_sha256": "6c8b96b717f428cd8e750089f30129a79d46edd179cdae285f8fb995115b6f08",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/config/substation.json",
+      "destination": "simulator/config/substation.json",
+      "source_sha256": "48aa3382a8fa3e27a9bd334233322a5592cc2fd80b020e4f9a34e16e40b15a25",
+      "packaged_sha256": "48aa3382a8fa3e27a9bd334233322a5592cc2fd80b020e4f9a34e16e40b15a25",
+      "modified": false
+    },
+    {
+      "source": "phase8-install-check/config/points.json",
+      "destination": "simulator/config/points.json",
+      "source_sha256": "774c5521ee60baa592d2f518d345b2c6a00d41777bc9e95f4dc7b977143d9b8b",
+      "packaged_sha256": "774c5521ee60baa592d2f518d345b2c6a00d41777bc9e95f4dc7b977143d9b8b",
+      "modified": false
+    },
+    {
+      "source": "phase8_project/phase8_freeze_demo.py",
+      "destination": "simulator/phase8_freeze_demo.py",
+      "source_sha256": "2441e52c64059fcaff4036382f73c5dd851bf5149e66bda03d7039a8c474fb1a",
+      "packaged_sha256": "2441e52c64059fcaff4036382f73c5dd851bf5149e66bda03d7039a8c474fb1a",
+      "modified": false
+    },
+    {
+      "source": "phase5_project/tests/verify_phase5.py",
+      "destination": "simulator/tests/verify_phase5.py",
+      "source_sha256": "4ea54c3d99850f20d95af5514b8468c689b6628fedba36416943b462513190c3",
+      "packaged_sha256": "4ea54c3d99850f20d95af5514b8468c689b6628fedba36416943b462513190c3",
+      "modified": false
+    },
+    {
+      "source": "phase7_project/tests/verify_phase7.py",
+      "destination": "simulator/tests/verify_phase7.py",
+      "source_sha256": "31e1a4f5999e29624e2378fc2866f68c4a1d92ec14252358272f8a004339661d",
+      "packaged_sha256": "3c1b854ba978e362888b89c70db779e9896cdd8167c597ead7951e386599a1e2",
+      "modified": true
+    },
+    {
+      "source": "phase8_project/tests/verify_phase8_tcp.py",
+      "destination": "simulator/tests/verify_phase8_tcp.py",
+      "source_sha256": "73c475921acc8095546e53d9a21b5c0c565f81d6ab6399deaeabac5c5f8111da",
+      "packaged_sha256": "73c475921acc8095546e53d9a21b5c0c565f81d6ab6399deaeabac5c5f8111da",
+      "modified": false
+    },
+    {
+      "source": "phase8_project/tests/verify_phase8.py",
+      "destination": "simulator/tests/verify_phase8.py",
+      "source_sha256": "0c6e7672b2db8dc39f103d881177aea350611519b02725f5492b9394ae0d694a",
+      "packaged_sha256": "fa50d62360c7d880d5d19409baf2a30ced3af8b9308b2eeb15de7e8163c7886e",
+      "modified": true
+    },
+    {
+      "source": "phase11_audit/tests/verify_phase11.py",
+      "destination": "simulator/tests/verify_phase11.py",
+      "source_sha256": "d059bf0f9b111b24072e38fd618854b4b4004f17d9463800e8e82010c397e422",
+      "packaged_sha256": "4770afdcf78555c93c8c6dc3fbe0c7fbafb7247fcf2d4b2524618d2c03f0dc0c",
+      "modified": true
+    },
+    {
+      "source": "upload/SubstationSCADA_20261020014401.zip",
+      "destination": "ignition/SubstationSCADA_project.zip",
+      "source_sha256": "a4b68c26e9e66db1c23c46e085c8582a1ef18b676643c8663ea67b000e767e89",
+      "packaged_sha256": "a4b68c26e9e66db1c23c46e085c8582a1ef18b676643c8663ea67b000e767e89",
+      "modified": false
+    },
+    {
+      "source": "upload/tags.json",
+      "destination": "ignition/Substation_tags.json",
+      "source_sha256": "b3bc47a50610d48d8858fbd86eb65303d01784725b2fdc7baea220e9ac4ab708",
+      "packaged_sha256": "b3bc47a50610d48d8858fbd86eb65303d01784725b2fdc7baea220e9ac4ab708",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/01_normal.png",
+      "destination": "evidence/live-overview/01_normal.png",
+      "source_sha256": "d5306e413b0f112afb4c0c141de2b87c5128690f323fb16370574d4bda7f391c",
+      "packaged_sha256": "d5306e413b0f112afb4c0c141de2b87c5128690f323fb16370574d4bda7f391c",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/03_pv_restarted_controls.png",
+      "destination": "evidence/live-overview/03_pv_restarted_controls.png",
+      "source_sha256": "222096ea8da391f0a0def7eae04709cc20498976addb6ed95db808f831cf6880",
+      "packaged_sha256": "222096ea8da391f0a0def7eae04709cc20498976addb6ed95db808f831cf6880",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/08_communication_recovery.png",
+      "destination": "evidence/live-overview/08_communication_recovery.png",
+      "source_sha256": "92751b1476bdfbd49e6dd52a36b2c6cb587fe42ecdd777339c1ee481ba8516cb",
+      "packaged_sha256": "92751b1476bdfbd49e6dd52a36b2c6cb587fe42ecdd777339c1ee481ba8516cb",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/04_cb1_open.png",
+      "destination": "evidence/live-overview/04_cb1_open.png",
+      "source_sha256": "481db9374d4629e4661fef33d5b6b4b8fbcf7c1d367e6c1d98f57fc0ee1bb221",
+      "packaged_sha256": "481db9374d4629e4661fef33d5b6b4b8fbcf7c1d367e6c1d98f57fc0ee1bb221",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/live_acceptance.json",
+      "destination": "evidence/live-overview/live_acceptance.json",
+      "source_sha256": "333b1a4d0545475b83b92b801ed013cc48aa1dae9f8ad769c208b3ffb88055d0",
+      "packaged_sha256": "f03767f853562e33f1ac33e1e741ef9b65e9109002dc165696ebd6f6030c8d65",
+      "modified": true
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/README.md",
+      "destination": "evidence/live-overview/README.md",
+      "source_sha256": "96217376cb8eae1d13990592c661acd06cc8903668104e3e62d9d0546fdd8872",
+      "packaged_sha256": "c70303d2f28855c59168126b8f298ac90c3da99734febb777ad5861488b3171e",
+      "modified": true
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/05_cb1_restored.png",
+      "destination": "evidence/live-overview/05_cb1_restored.png",
+      "source_sha256": "53b08213bfc9650ef031b6edfb4afc8f1d9eaea5daa9fa7aa21f6a3544731f0b",
+      "packaged_sha256": "53b08213bfc9650ef031b6edfb4afc8f1d9eaea5daa9fa7aa21f6a3544731f0b",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/07_communication_outage.png",
+      "destination": "evidence/live-overview/07_communication_outage.png",
+      "source_sha256": "af5d448588001b2a9b749f76d199b90f66490ae0b6dc4b608eb5d55bd255d2dc",
+      "packaged_sha256": "af5d448588001b2a9b749f76d199b90f66490ae0b6dc4b608eb5d55bd255d2dc",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/02_pv_stopped.png",
+      "destination": "evidence/live-overview/02_pv_stopped.png",
+      "source_sha256": "2d6817ef744d49a42694dbb4218c603be3732d25072647ea5c16b0630a8050b5",
+      "packaged_sha256": "2d6817ef744d49a42694dbb4218c603be3732d25072647ea5c16b0630a8050b5",
+      "modified": false
+    },
+    {
+      "source": "phase13_live_overview/package/evidence/06_restoration_audit.png",
+      "destination": "evidence/live-overview/06_restoration_audit.png",
+      "source_sha256": "fb07aef4989141ac0eff518ecd8597fa10eba1eb809b523ca867c57e2fe10835",
+      "packaged_sha256": "fb07aef4989141ac0eff518ecd8597fa10eba1eb809b523ca867c57e2fe10835",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/analyze_capture.py",
+      "destination": "evidence/modbus/analyze_capture.py",
+      "source_sha256": "addede8c68476c1116e3d3ed0d96420615897f756ffc426796ab1b435f9210e1",
+      "packaged_sha256": "addede8c68476c1116e3d3ed0d96420615897f756ffc426796ab1b435f9210e1",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/README.md",
+      "destination": "evidence/modbus/README.md",
+      "source_sha256": "6fc6e77643a9fddd02f0f7105f71b597c598d4ed7652ae681b327196e9012868",
+      "packaged_sha256": "6fc6e77643a9fddd02f0f7105f71b597c598d4ed7652ae681b327196e9012868",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/register_map.json",
+      "destination": "evidence/modbus/register_map.json",
+      "source_sha256": "98f46c722fff008404aef60c4f07ba1f55d0c9adfb650475372458de66c857a1",
+      "packaged_sha256": "98f46c722fff008404aef60c4f07ba1f55d0c9adfb650475372458de66c857a1",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/manifest.json",
+      "destination": "evidence/modbus/manifest.json",
+      "source_sha256": "fabd34c7683af49cea1089618364fd9b13f83142e3339f4af913e3a9538eefae",
+      "packaged_sha256": "0248ce13084694abb2198358ff578f27575a8d37e5c89c057eccd6ef174dca6e",
+      "modified": true
+    },
+    {
+      "source": "phase14_modbus_evidence/package/test_analyzer.py",
+      "destination": "evidence/modbus/test_analyzer.py",
+      "source_sha256": "e51210ccc5bd6ed67fe97d80350b009e8c17579baa128ff585fb24538295e980",
+      "packaged_sha256": "e51210ccc5bd6ed67fe97d80350b009e8c17579baa128ff585fb24538295e980",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/modbus_control_cycle.pcapng",
+      "destination": "evidence/modbus/modbus_control_cycle.pcapng",
+      "source_sha256": "3153d5955603a819351ba8edacfe9f16b205de33d92956b0941722e4ddbd3854",
+      "packaged_sha256": "3153d5955603a819351ba8edacfe9f16b205de33d92956b0941722e4ddbd3854",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/results/verification.json",
+      "destination": "evidence/modbus/results/verification.json",
+      "source_sha256": "f5466ebdf4d99ff063aae0b205b3c2740738250005306a40d610b3922d542535",
+      "packaged_sha256": "f5466ebdf4d99ff063aae0b205b3c2740738250005306a40d610b3922d542535",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/results/modbus_messages.csv",
+      "destination": "evidence/modbus/results/modbus_messages.csv",
+      "source_sha256": "b1bdc79cbea9b4643d34f1adedfadbf7f636830ebbe34e717c333e5fd4221008",
+      "packaged_sha256": "b1bdc79cbea9b4643d34f1adedfadbf7f636830ebbe34e717c333e5fd4221008",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/results/discrete_telemetry.csv",
+      "destination": "evidence/modbus/results/discrete_telemetry.csv",
+      "source_sha256": "a7886400524f6116991ce4f2dd769b1b8713cf9e025aef0089b0abf61ece521b",
+      "packaged_sha256": "a7886400524f6116991ce4f2dd769b1b8713cf9e025aef0089b0abf61ece521b",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/results/holding_telemetry.csv",
+      "destination": "evidence/modbus/results/holding_telemetry.csv",
+      "source_sha256": "ad86b6a4afc0a34b037734a847ad8fe1fbe4b0916dba30935bd2edb3488ce5dc",
+      "packaged_sha256": "ad86b6a4afc0a34b037734a847ad8fe1fbe4b0916dba30935bd2edb3488ce5dc",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/results/commands.csv",
+      "destination": "evidence/modbus/results/commands.csv",
+      "source_sha256": "c808932e8f18a03a6667660faa0d6676bfa459cc628f98d0f5259d671e3dc25c",
+      "packaged_sha256": "c808932e8f18a03a6667660faa0d6676bfa459cc628f98d0f5259d671e3dc25c",
+      "modified": false
+    },
+    {
+      "source": "phase14_modbus_evidence/package/results/analysis.json",
+      "destination": "evidence/modbus/results/analysis.json",
+      "source_sha256": "38d25b7f216746ff8b74b0139b80be72dcdb9fe07b8a0c0433a110ef82bd7368",
+      "packaged_sha256": "38d25b7f216746ff8b74b0139b80be72dcdb9fe07b8a0c0433a110ef82bd7368",
+      "modified": false
+    },
+    {
+      "source": "phase3_design/docs/design_notes.md",
+      "destination": "docs/electrical-design-notes.md",
+      "source_sha256": "f39db718dff9393ad2328e93c3948e869774a834e474e8377f747aca9253cecb",
+      "packaged_sha256": "522fb77309b3250668ae54233b3aeea5918a5188953f4b6e68981eb599add9f1",
+      "modified": true
+    }
+  ],
+  "public_documentation_adaptations": [
+    "Current-tense electrical design notes, with actual retained-fault behavior clarified.",
+    "Acceptance references adapted to the complete native project export.",
+    "Packet/capture provenance retains source hashes without service-specific identifiers."
+  ]
+}

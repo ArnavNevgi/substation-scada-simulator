@@ -1,0 +1,14 @@
+{
+  "suite": "Phase 11 offline command audit verification",
+  "tests_run": 34,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "scope": "Real local TCP Modbus feedback frames and original Phase 7 ControlEngine; mocked Ignition and Java APIs",
+  "not_verified": [
+    "Ignition/Jython runtime",
+    "actual OPC tag writes",
+    "actual audit-profile persistence",
+    "Perspective UI"
+  ]
+}

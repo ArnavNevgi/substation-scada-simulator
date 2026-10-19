@@ -1,0 +1,373 @@
+{
+  "scope": "Static export/tag/source consistency checks; no live Ignition execution",
+  "passed": true,
+  "checks_passed": 91,
+  "script_actions_checked": 39,
+  "view_tag_references_checked": 23,
+  "checks": [
+    {
+      "check": "Native project ZIP CRC is valid",
+      "passed": true
+    },
+    {
+      "check": "Native export contains safe unique resource names",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: project.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/script-python/phase7_controls/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/script-python/phase7_controls/code.py",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Controls/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Controls/view.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Controls/thumbnail.png",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/page-config/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/page-config/config.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/global-props/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/global-props/data.bin",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/session-props/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/session-props/props.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Overview/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Overview/view.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/AlarmHistory/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/AlarmHistory/view.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/AlarmHistory/thumbnail.png",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Alarms/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Alarms/view.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Alarms/thumbnail.png",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/session-permissions/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/session-permissions/data.bin",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/CommandHistory/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/CommandHistory/view.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/CommandHistory/thumbnail.png",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Trends/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Trends/view.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: com.inductiveautomation.perspective/views/Trends/thumbnail.png",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/timer/Phase8Health/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/timer/Phase8Health/handleTimerEvent.py",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/script-python/phase8_monitor/resource.json",
+      "passed": true
+    },
+    {
+      "check": "Exploded resource matches native ZIP: ignition/script-python/phase8_monitor/code.py",
+      "passed": true
+    },
+    {
+      "check": "Exactly six expected Perspective views are included",
+      "passed": true
+    },
+    {
+      "check": "Homepage opens Overview",
+      "passed": true
+    },
+    {
+      "check": "All seven page mappings reference included views",
+      "passed": true
+    },
+    {
+      "check": "Session permission requires the Viewer level",
+      "passed": true
+    },
+    {
+      "check": "Health timer is enabled, dedicated and fixed-delay at one second",
+      "passed": true
+    },
+    {
+      "check": "Timer calls the current monitor module",
+      "passed": true
+    },
+    {
+      "check": "Readable module matches native export: phase7_controls",
+      "passed": true
+    },
+    {
+      "check": "Readable module matches native export: phase8_monitor",
+      "passed": true
+    },
+    {
+      "check": "Command helper is version 11.1",
+      "passed": true
+    },
+    {
+      "check": "Tag export contains 74 atomic tags and 41 OPC points",
+      "passed": true
+    },
+    {
+      "check": "Twelve tags have history enabled",
+      "passed": true
+    },
+    {
+      "check": "Eleven alarm definitions are included",
+      "passed": true
+    },
+    {
+      "check": "Simulator map has exactly 41 unique points",
+      "passed": true
+    },
+    {
+      "check": "OPC tag item paths match the simulator point map",
+      "passed": true
+    },
+    {
+      "check": "Simulator endpoint stays at localhost port 1502, unit 1, zero-based",
+      "passed": true
+    },
+    {
+      "check": "Sign Out is available to the Viewer session level",
+      "passed": true
+    },
+    {
+      "check": "Every static view tag reference resolves",
+      "passed": true
+    },
+    {
+      "check": "Every navigation destination exists",
+      "passed": true
+    },
+    {
+      "check": "All nine equipment/scenario actions require Operator",
+      "passed": true
+    },
+    {
+      "check": "No view has a bidirectional tag binding",
+      "passed": true
+    },
+    {
+      "check": "Overview has all twelve live-state bindings",
+      "passed": true
+    },
+    {
+      "check": "Overview includes no command or tag-write calls",
+      "passed": true
+    },
+    {
+      "check": "Trends has the two Grid/PV pens",
+      "passed": true
+    },
+    {
+      "check": "Trends has ten-minute range, two-second refresh and no historical mode override",
+      "passed": true
+    },
+    {
+      "check": "AlarmHistory references the working database journal",
+      "passed": true
+    },
+    {
+      "check": "All 59 monitor read paths resolve to exported tags",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> evidence/live-overview/01_normal.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> docs/scope-and-limitations.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> evidence/live-overview/README.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> evidence/modbus/README.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> docs/verification.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> docs/setup.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> docs/architecture.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> docs/command-protocol.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> docs/security-and-health.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> docs/publish-github.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: README.md -> .github/workflows/verify.yml",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/verification.md -> ../.github/workflows/verify.yml",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/verification.md -> ../evidence/live-overview/README.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/verification.md -> ../evidence/modbus/README.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/verification.md -> scope-and-limitations.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/verification.md -> provenance.json",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/setup.md -> ../evidence/live-overview/README.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/setup.md -> verification.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/architecture.md -> ../simulator/config/substation.json",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/command-protocol.md -> ../evidence/modbus/README.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/security-and-health.md -> ../evidence/live-overview/README.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/scope-and-limitations.md -> provenance.json",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: docs/scope-and-limitations.md -> verification.md",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 01_normal.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 02_pv_stopped.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 03_pv_restarted_controls.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 04_cb1_open.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 05_cb1_restored.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 06_restoration_audit.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 07_communication_outage.png",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown link resolves: evidence/live-overview/README.md -> 08_communication_recovery.png",
+      "passed": true
+    }
+  ]
+}

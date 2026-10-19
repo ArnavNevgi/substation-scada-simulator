@@ -1,0 +1,33 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "Overview"
+    },
+    "/alarm-history": {
+      "title": "",
+      "viewPath": "AlarmHistory"
+    },
+    "/alarms": {
+      "title": "",
+      "viewPath": "Alarms"
+    },
+    "/command-history": {
+      "viewPath": "CommandHistory"
+    },
+    "/controls": {
+      "title": "",
+      "viewPath": "Controls"
+    },
+    "/overview": {
+      "viewPath": "Overview"
+    },
+    "/trends": {
+      "title": "",
+      "viewPath": "Trends"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

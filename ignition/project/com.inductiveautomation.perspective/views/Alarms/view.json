@@ -1,0 +1,263 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 760,
+      "width": 1000
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 40,
+          "width": 920,
+          "x": 40,
+          "y": 20
+        },
+        "props": {
+          "style": {
+            "fontSize": 24
+          },
+          "text": "115 kV — Alarms and Data Quality"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 45,
+          "width": 920,
+          "x": 40,
+          "y": 75
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Telemetry: \" + {[default]Substation/Health/Summary}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 30,
+          "width": 920,
+          "x": 40,
+          "y": 125
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Health/Heartbeat_Age_s} \u003c 0,\r\n\"Heartbeat age: unavailable\",\r\n\"Heartbeat age: \" + numberFormat({[default]Substation/Health/Heartbeat_Age_s}, \"0.0\") + \" s\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "AlarmStatusTable"
+        },
+        "position": {
+          "height": 420,
+          "width": 920,
+          "x": 40,
+          "y": 170
+        },
+        "propConfig": {
+          "props.enableAcknowledge": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enableShelve": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enableUnshelve": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "filters": {
+            "active": {
+              "conditions": {
+                "displayPath": "Substation/*"
+              }
+            }
+          },
+          "refreshRate": 1000
+        },
+        "type": "ia.display.alarmstatustable"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/overview\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 40,
+          "y": 700
+        },
+        "props": {
+          "text": "Overview"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/controls\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 225,
+          "y": 700
+        },
+        "props": {
+          "text": "Controls"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/alarms\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_1"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 410,
+          "y": 700
+        },
+        "props": {
+          "text": "Alarms"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/trends\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_2"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 595,
+          "y": 700
+        },
+        "props": {
+          "text": "Trends"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "    system.perspective.navigate(page\u003d\"/alarm-history\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_3"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 795,
+          "y": 700
+        },
+        "props": {
+          "text": "Alarm History"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.log
+.env
+.env.*
+*.gwbk
+*.db
+*.sqlite
+*.sqlite3
+simulator/artifacts/

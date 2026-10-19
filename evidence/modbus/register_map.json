@@ -1,0 +1,170 @@
+{
+  "addressing": "Zero-based Modbus PDU addresses, unit 1. Command/status enums are project-specific.",
+  "status_codes": {
+    "0": "IDLE",
+    "1": "PENDING",
+    "2": "APPLIED",
+    "3": "REJECTED",
+    "4": "FAILED"
+  },
+  "reason_zero": "None",
+  "command_codes": {
+    "4": "START PV1",
+    "5": "STOP PV1"
+  },
+  "points": [
+    {
+      "signal": "Heartbeat",
+      "area": "HR",
+      "offset_zero_based": 1,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "count",
+      "opc_item_path": "[SubstationSim]1.HRUS1"
+    },
+    {
+      "signal": "Bus_Voltage_kV",
+      "area": "HR",
+      "offset_zero_based": 2,
+      "raw_type": "uint16",
+      "scale": 0.01,
+      "engineering_unit": "kV",
+      "opc_item_path": "[SubstationSim]1.HRUS2"
+    },
+    {
+      "signal": "Grid_P_kW",
+      "area": "HR",
+      "offset_zero_based": 4,
+      "raw_type": "int16",
+      "scale": 1,
+      "engineering_unit": "kW",
+      "opc_item_path": "[SubstationSim]1.HR4"
+    },
+    {
+      "signal": "Load_P_kW",
+      "area": "HR",
+      "offset_zero_based": 6,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "kW",
+      "opc_item_path": "[SubstationSim]1.HRUS6"
+    },
+    {
+      "signal": "T1_Loading_pct",
+      "area": "HR",
+      "offset_zero_based": 8,
+      "raw_type": "uint16",
+      "scale": 0.1,
+      "engineering_unit": "%",
+      "opc_item_path": "[SubstationSim]1.HRUS8"
+    },
+    {
+      "signal": "PV_AC_Power_kW",
+      "area": "HR",
+      "offset_zero_based": 13,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "kW",
+      "opc_item_path": "[SubstationSim]1.HRUS13"
+    },
+    {
+      "signal": "Model_State",
+      "area": "HR",
+      "offset_zero_based": 18,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "enum",
+      "opc_item_path": "[SubstationSim]1.HRUS18"
+    },
+    {
+      "signal": "Command_Status",
+      "area": "HR",
+      "offset_zero_based": 19,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "enum",
+      "opc_item_path": "[SubstationSim]1.HRUS19"
+    },
+    {
+      "signal": "Command_Reason",
+      "area": "HR",
+      "offset_zero_based": 20,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "enum",
+      "opc_item_path": "[SubstationSim]1.HRUS20"
+    },
+    {
+      "signal": "Command_Ack_Sequence",
+      "area": "HR",
+      "offset_zero_based": 21,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "count",
+      "opc_item_path": "[SubstationSim]1.HRUS21"
+    },
+    {
+      "signal": "Command_Code",
+      "area": "HR",
+      "offset_zero_based": 100,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "enum",
+      "opc_item_path": "[SubstationSim]1.HRUS100"
+    },
+    {
+      "signal": "Command_Sequence",
+      "area": "HR",
+      "offset_zero_based": 101,
+      "raw_type": "uint16",
+      "scale": 1,
+      "engineering_unit": "count",
+      "opc_item_path": "[SubstationSim]1.HRUS101"
+    },
+    {
+      "signal": "CB1_Closed",
+      "area": "DI",
+      "offset_zero_based": 0,
+      "raw_type": "bool",
+      "scale": 1,
+      "engineering_unit": "bool",
+      "opc_item_path": "[SubstationSim]1.DI0"
+    },
+    {
+      "signal": "PV_Running",
+      "area": "DI",
+      "offset_zero_based": 2,
+      "raw_type": "bool",
+      "scale": 1,
+      "engineering_unit": "bool",
+      "opc_item_path": "[SubstationSim]1.DI2"
+    },
+    {
+      "signal": "Model_Valid",
+      "area": "DI",
+      "offset_zero_based": 4,
+      "raw_type": "bool",
+      "scale": 1,
+      "engineering_unit": "bool",
+      "opc_item_path": "[SubstationSim]1.DI4"
+    },
+    {
+      "signal": "Bus_Energized",
+      "area": "DI",
+      "offset_zero_based": 5,
+      "raw_type": "bool",
+      "scale": 1,
+      "engineering_unit": "bool",
+      "opc_item_path": "[SubstationSim]1.DI5"
+    },
+    {
+      "signal": "Remote_Mode",
+      "area": "DI",
+      "offset_zero_based": 6,
+      "raw_type": "bool",
+      "scale": 1,
+      "engineering_unit": "bool",
+      "opc_item_path": "[SubstationSim]1.DI6"
+    }
+  ]
+}

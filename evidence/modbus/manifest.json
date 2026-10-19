@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-19T20:09:43.279324+00:00",
+  "original_capture": "modbus_control_cycle.pcapng",
+  "original_sha256": "3153d5955603a819351ba8edacfe9f16b205de33d92956b0941722e4ddbd3854",
+  "capture_unchanged": true,
+  "point_map_source": "Phase 7 supplied project point map, cross-checked against uploaded Ignition tag addresses",
+  "point_map_source_sha256": "774c5521ee60baa592d2f518d345b2c6a00d41777bc9e95f4dc7b977143d9b8b",
+  "checks": {
+    "command_code_before_sequence": true,
+    "matching_applied_feedback": true,
+    "pv_power_cycle_kw": [
+      2000,
+      0,
+      2000
+    ],
+    "terminal_feedback_samples": 2
+  }
+}

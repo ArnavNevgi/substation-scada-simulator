@@ -1,0 +1,38 @@
+name: Verify simulator and project snapshot
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install application dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Check electrical scenarios
+        run: python simulator/phase4_powerflow.py --verify
+      - name: Check controls and actual Modbus TCP
+        run: python simulator/tests/verify_phase7.py
+      - name: Check monitor behavior with substituted Gateway APIs
+        run: python simulator/tests/verify_phase8.py
+      - name: Check heartbeat-freeze TCP fixture
+        run: python simulator/tests/verify_phase8_tcp.py
+      - name: Check current audit helper
+        run: python simulator/tests/verify_phase11.py
+      - name: Check recorded packet evidence
+        run: python evidence/modbus/test_analyzer.py
+      - name: Check native resources and references
+        run: python tools/check_project.py

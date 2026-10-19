@@ -1,0 +1,1105 @@
+{
+  "custom": {
+    "commandMessage": "Ready"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.commandMessage": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 760
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 40,
+          "width": 720,
+          "x": 40,
+          "y": 20
+        },
+        "props": {
+          "style": {
+            "fontSize": 22
+          },
+          "text": "115 kV — Controls and Protection"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 30,
+          "width": 230,
+          "x": 40,
+          "y": 80
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Status/CB1_Closed}, \"CB1: CLOSED\", \"CB1: OPEN\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 30,
+          "width": 230,
+          "x": 280,
+          "y": 80
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Status/PV_Running}, \"PV: RUNNING\", \"PV: IDLE\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 40,
+          "width": 340,
+          "x": 40,
+          "y": 125
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Grid (+import): \" + numberFormat({[default]Substation/Measurements/Grid_P_kW}, \"#,##0\") + \" kW\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 20
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 40,
+          "width": 340,
+          "x": 420,
+          "y": 125
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Solar output: \" + numberFormat({[default]Substation/Measurements/PV_AC_Power_kW}, \"#,##0\") + \" kW\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 20
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 30,
+          "width": 720,
+          "x": 40,
+          "y": 400
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Command #\" + toStr({[default]Substation/Diagnostics/Command_Ack_Sequence}) + \": \" +\r\nswitch({[default]Substation/Diagnostics/Command_Status},\r\n0, 1, 2, 3, 4,\r\n\"IDLE\", \"PENDING\", \"APPLIED\", \"REJECTED\", \"FAILED\",\r\n\"UNKNOWN\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 30,
+          "width": 720,
+          "x": 40,
+          "y": 435
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Reason: \" + switch({[default]Substation/Diagnostics/Command_Reason},\r\n0, 1, 2, 3, 4, 5, 6, 7, 8, 9,\r\n\"None\", \"Local mode\", \"Fault active\", \"Trip latched\", \"Grid/bus unavailable\",\r\n\"Model invalid\", \"Busy\", \"Invalid command\", \"Out of range\", \"Other interlock\",\r\n\"Unknown\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 40,
+          "width": 720,
+          "x": 40,
+          "y": 470
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.commandMessage}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t\tself.view.custom.commandMessage \u003d phase7_controls.send_command(1, self)\n\t"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 40,
+          "width": 128,
+          "x": 40,
+          "y": 280
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "OPEN CB1"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.commandMessage \u003d phase7_controls.send_command(2, self)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 40,
+          "width": 128,
+          "x": 188,
+          "y": 280
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "CLOSE CB1"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.commandMessage \u003d phase7_controls.send_command(3, self)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_1"
+        },
+        "position": {
+          "height": 40,
+          "width": 128,
+          "x": 336,
+          "y": 280
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "RESET TRIPS"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.commandMessage \u003d phase7_controls.send_command(4, self)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_2"
+        },
+        "position": {
+          "height": 40,
+          "width": 128,
+          "x": 484,
+          "y": 280
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "START PV1"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "    self.view.custom.commandMessage \u003d phase7_controls.send_command(5, self)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_3"
+        },
+        "position": {
+          "height": 40,
+          "width": 128,
+          "x": 632,
+          "y": 280
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "STOP PV1"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 30,
+          "width": 240,
+          "x": 520,
+          "y": 80
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "switch({[default]Substation/Diagnostics/Model_State},\r\n0, 1, 2, 3, 4,\r\n\"Model: UPDATING\", \"Model: VALID\", \"Model: ISOLATED\", \"Model: FAULT SCENARIO\", \"Model: INVALID\",\r\n\"Model: UNKNOWN\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 30,
+          "width": 340,
+          "x": 40,
+          "y": 180
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Status/Fault_Active}, \"Fault: PRESENT\", \"Fault: REMOVED\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 30,
+          "width": 340,
+          "x": 420,
+          "y": 180
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Status/Remote_Mode}, \"Mode: REMOTE\", \"Mode: LOCAL\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_10"
+        },
+        "position": {
+          "height": 30,
+          "width": 340,
+          "x": 40,
+          "y": 220
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Status/Trip_Latched}, \"CB1 trip: LATCHED\", \"CB1 trip: CLEAR\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_11"
+        },
+        "position": {
+          "height": 30,
+          "width": 340,
+          "x": 420,
+          "y": 220
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Status/PV_Tripped}, \"PV trip: LATCHED\", \"PV trip: CLEAR\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_12"
+        },
+        "position": {
+          "height": 40,
+          "width": 720,
+          "x": 40,
+          "y": 530
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Measurements/LastFault_Ikss_kA} \u003e 0,\r\n\"Last grid-only fault Ikss: \" + numberFormat({[default]Substation/Measurements/LastFault_Ikss_kA}, \"0.000\") + \" kA (retained)\",\r\n\"Last grid-only fault: NONE\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 16
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.commandMessage \u003d phase7_controls.set_simulation(\"Fault_Enable\", 1)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_4"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 40,
+          "y": 340
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "INJECT FAULT"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.commandMessage \u003d phase7_controls.set_simulation(\"Fault_Enable\", 0)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_5"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 225,
+          "y": 340
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "CLEAR FAULT"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.commandMessage \u003d phase7_controls.set_simulation(\"Remote_Mode_Set\", 0)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_6"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 410,
+          "y": 340
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "LOCAL MODE"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.commandMessage \u003d phase7_controls.set_simulation(\"Remote_Mode_Set\", 1)"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Operator"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_7"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 595,
+          "y": 340
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false, \"Authenticated/Roles/Operator\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "REMOTE MODE"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/overview\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_8"
+        },
+        "position": {
+          "height": 40,
+          "width": 166,
+          "x": 40,
+          "y": 700
+        },
+        "props": {
+          "text": "Overview"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/controls\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_9"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 225,
+          "y": 700
+        },
+        "props": {
+          "text": "Controls"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/alarms\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_10"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 410,
+          "y": 700
+        },
+        "props": {
+          "text": "Alarms"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/trends\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_11"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 595,
+          "y": 700
+        },
+        "props": {
+          "text": "Trends"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label_13"
+        },
+        "position": {
+          "height": 35,
+          "width": 720,
+          "x": 40,
+          "y": 650
+        },
+        "propConfig": {
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Health/Telemetry_Usable},\r\n\"#166534\",\r\n\"#B91C1C\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({[default]Substation/Health/Telemetry_Usable},\r\n\"Telemetry: HEALTHY\",\r\n\"Telemetry: CHECK ALARMS - data unavailable or invalid\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 14
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.navigate(page\u003d\"/command-history\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_12"
+        },
+        "position": {
+          "height": 40,
+          "width": 165,
+          "x": 595,
+          "y": 648
+        },
+        "props": {
+          "text": "Command History"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.logout()"
+              },
+              "permissions": {
+                "securityLevels": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "name": "Viewer"
+                          }
+                        ],
+                        "name": "Roles"
+                      }
+                    ],
+                    "name": "Authenticated"
+                  }
+                ],
+                "type": "AllOf"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_13"
+        },
+        "position": {
+          "height": 34,
+          "rotate": {
+            "anchor": "25% 25%"
+          },
+          "width": 80,
+          "x": 469.5,
+          "y": 648.8
+        },
+        "props": {
+          "text": "Sign Out"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 148,
+      "y": 40.20000076293945
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "phase": 8,
+  "scope": "Offline CPython with Ignition/Java API fakes; not a live Ignition verification",
+  "passed": true,
+  "passed_checks": 56,
+  "total_checks": 56,
+  "checks": [
+    {
+      "check": "Monitor covers all 41 OPC points and 18 engineering tags without duplicates",
+      "passed": true
+    },
+    {
+      "check": "An installed but unstarted monitor cannot report usable telemetry",
+      "passed": true
+    },
+    {
+      "check": "First heartbeat sample establishes a baseline without claiming freshness or alarming during startup grace",
+      "passed": true
+    },
+    {
+      "check": "Heartbeat rollover from 65535 to 0 is a valid observed update",
+      "passed": true
+    },
+    {
+      "check": "Heartbeat remains fresh below its five-second timeout",
+      "passed": true
+    },
+    {
+      "check": "An unchanged heartbeat expires exactly at five seconds despite good tag quality",
+      "passed": true
+    },
+    {
+      "check": "A stale model heartbeat is distinguished from a stopped monitor or bad OPC quality",
+      "passed": true
+    },
+    {
+      "check": "A new heartbeat restores freshness",
+      "passed": true
+    },
+    {
+      "check": "Bad or uncertain engineering-tag quality suppresses process use without a duplicate stale alarm",
+      "passed": true
+    },
+    {
+      "check": "Good quality recovery restores telemetry use with a changing heartbeat",
+      "passed": true
+    },
+    {
+      "check": "Bad heartbeat quality invalidates the previous freshness baseline",
+      "passed": true
+    },
+    {
+      "check": "Recovery requires a change between good heartbeat samples",
+      "passed": true
+    },
+    {
+      "check": "The next good heartbeat change completes recovery",
+      "passed": true
+    },
+    {
+      "check": "Model validity is independent of healthy communication and a changing heartbeat",
+      "passed": true
+    },
+    {
+      "check": "A valid isolated bus remains usable status and suppresses voltage alarms on its legitimate zeros",
+      "passed": true
+    },
+    {
+      "check": "Health summary explains the valid isolated state",
+      "passed": true
+    },
+    {
+      "check": "The independent watchdog expires when the Gateway timer stops running",
+      "passed": true
+    },
+    {
+      "check": "Summary does not display a frozen healthy message after timer failure",
+      "passed": true
+    },
+    {
+      "check": "A missing numeric value is rejected even when its OPC quality says Good",
+      "passed": true
+    },
+    {
+      "check": "A NaN numeric value is rejected even when its OPC quality says Good",
+      "passed": true
+    },
+    {
+      "check": "A infinite numeric value is rejected even when its OPC quality says Good",
+      "passed": true
+    },
+    {
+      "check": "Out-of-range or fractional heartbeat -1 is rejected",
+      "passed": true
+    },
+    {
+      "check": "Out-of-range or fractional heartbeat 65536 is rejected",
+      "passed": true
+    },
+    {
+      "check": "Out-of-range or fractional heartbeat 1.5 is rejected",
+      "passed": true
+    },
+    {
+      "check": "A read exception publishes failed health while keeping the monitor watchdog honest",
+      "passed": true
+    },
+    {
+      "check": "Read error details remain visible",
+      "passed": true
+    },
+    {
+      "check": "Read-exception recovery starts with a new heartbeat baseline",
+      "passed": true
+    },
+    {
+      "check": "Read-exception recovery completes on the next observed change",
+      "passed": true
+    },
+    {
+      "check": "Failed health writes are logged and never commit a successful watchdog time",
+      "passed": true
+    },
+    {
+      "check": "A failed publisher is detected by the independent watchdog",
+      "passed": true
+    },
+    {
+      "check": "Concurrent timer entry cannot publish a second health sample",
+      "passed": true
+    },
+    {
+      "check": "The monitor writes only its Health folder, never commands, inputs, or telemetry",
+      "passed": true
+    },
+    {
+      "check": "Heartbeat elapsed time is independent of a backward wall-clock change",
+      "passed": true
+    },
+    {
+      "check": "Installer creates 15 named health tags",
+      "passed": true
+    },
+    {
+      "check": "Installer configures 11 named alarms",
+      "passed": true
+    },
+    {
+      "check": "Unrelated existing alarms are preserved",
+      "passed": true
+    },
+    {
+      "check": "Existing OPC addresses, permissions, folders, and tag properties are preserved",
+      "passed": true
+    },
+    {
+      "check": "Re-running setup does not reset live memory values",
+      "passed": true
+    },
+    {
+      "check": "Re-running setup does not duplicate managed alarms",
+      "passed": true
+    },
+    {
+      "check": "All alarms require operator acknowledgement",
+      "passed": true
+    },
+    {
+      "check": "Transformer warning/overload thresholds include three percentage points of hysteresis",
+      "passed": true
+    },
+    {
+      "check": "Bus thresholds implement 0.95 and 1.05 pu on the 13.8 kV base",
+      "passed": true
+    },
+    {
+      "check": "Voltage alarms require a usable supplied bus; trip alarms require healthy communication",
+      "passed": true
+    },
+    {
+      "check": "Alarm delays use Ignition's documented scripting property names",
+      "passed": true
+    },
+    {
+      "check": "Missing required tags abort setup before any configuration writes",
+      "passed": true
+    },
+    {
+      "check": "A conflicting Health namespace aborts setup before any configuration writes",
+      "passed": true
+    },
+    {
+      "check": "Bad configuration quality prevents a successful installation report",
+      "passed": true
+    },
+    {
+      "check": "Ignition module avoids Python 3-only syntax and non-ASCII source",
+      "passed": true
+    },
+    {
+      "check": "Installer accepts display labels including When False and Above Setpoint and preserves live values on reinstallation",
+      "passed": true
+    },
+    {
+      "check": "Installer accepts Java-style enums with canonical names and different display text and preserves live values on reinstallation",
+      "passed": true
+    },
+    {
+      "check": "Enum normalization still rejects a genuinely different alarm mode",
+      "passed": true
+    },
+    {
+      "check": "Native enum support retains validation of process-alarm enable bindings",
+      "passed": true
+    },
+    {
+      "check": "Optional freeze demo starts with a normal moving heartbeat",
+      "passed": true
+    },
+    {
+      "check": "Heartbeat continues before the configured freeze time",
+      "passed": true
+    },
+    {
+      "check": "At the freeze boundary only heartbeat publication stops; other updates continue",
+      "passed": true
+    },
+    {
+      "check": "The demo retains its frozen heartbeat across subsequent model publications",
+      "passed": true
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "project": "115 kV Substation SCADA and Solar Monitoring",
+  "status": "Educational design specification; network implementation follows in Phase 4",
+  "parameter_basis": "All equipment parameters below are illustrative assumptions, not utility or manufacturer data.",
+  "software": {
+    "python_user_version": "3.14.3",
+    "pandapower": "3.5.6",
+    "pymodbus": "3.16.1",
+    "ignition_maker": "8.3.10"
+  },
+  "simulation": {
+    "frequency_hz": 60.0,
+    "power_flow_interval_s": 1.0,
+    "control_tick_s": 0.1,
+    "hard_real_time": false,
+    "balanced_three_phase": true
+  },
+  "buses": [
+    {
+      "name": "GRID_115",
+      "vn_kv": 115.0
+    },
+    {
+      "name": "LINE_SIDE_115",
+      "vn_kv": 115.0
+    },
+    {
+      "name": "TX_HV_115",
+      "vn_kv": 115.0
+    },
+    {
+      "name": "BUS_13_8",
+      "vn_kv": 13.8
+    },
+    {
+      "name": "SOLAR_AC_0_69",
+      "vn_kv": 0.69
+    }
+  ],
+  "external_grid": {
+    "bus": "GRID_115",
+    "vm_pu": 1.0,
+    "va_degree": 0.0,
+    "s_sc_max_mva": 1000.0,
+    "s_sc_min_mva": 800.0,
+    "rx_max": 0.1,
+    "rx_min": 0.1
+  },
+  "line": {
+    "name": "L1",
+    "from_bus": "GRID_115",
+    "to_bus": "LINE_SIDE_115",
+    "length_km": 5.0,
+    "r_ohm_per_km": 0.08,
+    "x_ohm_per_km": 0.4,
+    "c_nf_per_km": 10.0,
+    "max_i_ka": 0.6,
+    "parameter_frequency_hz": 60.0
+  },
+  "breaker": {
+    "name": "CB1",
+    "bus": "LINE_SIDE_115",
+    "element_bus": "TX_HV_115",
+    "model": "bus-bus switch",
+    "initial_closed": true,
+    "operation_delay_s": 0.3,
+    "delay_basis": "Illustrative simulation delay, not a real breaker specification"
+  },
+  "main_transformer": {
+    "name": "T1",
+    "hv_bus": "TX_HV_115",
+    "lv_bus": "BUS_13_8",
+    "sn_mva": 20.0,
+    "vn_hv_kv": 115.0,
+    "vn_lv_kv": 13.8,
+    "vk_percent": 10.0,
+    "vkr_percent": 0.5,
+    "pfe_kw": 20.0,
+    "i0_percent": 0.1,
+    "shift_degree": 0.0,
+    "tap_changer": "Fixed nominal ratio in the first version"
+  },
+  "solar_transformer": {
+    "name": "T2",
+    "hv_bus": "BUS_13_8",
+    "lv_bus": "SOLAR_AC_0_69",
+    "sn_mva": 3.0,
+    "vn_hv_kv": 13.8,
+    "vn_lv_kv": 0.69,
+    "vk_percent": 6.0,
+    "vkr_percent": 1.0,
+    "pfe_kw": 3.0,
+    "i0_percent": 0.2,
+    "shift_degree": 0.0
+  },
+  "load": {
+    "name": "LOAD1",
+    "bus": "BUS_13_8",
+    "initial_p_mw": 10.0,
+    "initial_q_mvar": 2.0,
+    "p_range_mw": [
+      0.0,
+      25.0
+    ],
+    "q_range_mvar": [
+      -5.0,
+      5.0
+    ],
+    "model": "Constant P and Q while supplied",
+    "test_range_note": "The upper demand range intentionally permits overload scenarios above the 20 MVA transformer rating"
+  },
+  "solar": {
+    "name": "PV1",
+    "bus": "SOLAR_AC_0_69",
+    "model": "Grid-following static P/Q injection with Python operating logic",
+    "s_rated_mva": 2.5,
+    "p_ac_max_mw": 2.0,
+    "dc_available_at_1000_w_m2_mw": 2.1,
+    "efficiency_fraction": 0.98,
+    "dc_voltage_when_sun_available_v": 1000.0,
+    "initial_irradiance_w_m2": 1000,
+    "initial_p_limit_kw": 2000,
+    "initial_q_set_kvar": 0,
+    "pq_limit_policy": "Active-power priority; clamp reactive output to the remaining apparent-power capability",
+    "night_policy": "No active or reactive output in the initial version",
+    "restart_policy": "After grid restoration, start only when the bus is energized and permissives are satisfied",
+    "temperature_model": "Optional illustrative first-order thermal state in Python, not computed by power flow"
+  },
+  "protection": {
+    "fault_location_bus": "BUS_13_8",
+    "fault_type": "Three-phase bolted fault scenario",
+    "short_circuit_method": "Separate IEC 60909 calculation on a copy of the network",
+    "initial_fault_contributions": "External grid only; PV contribution excluded from the initial fault study",
+    "overcurrent_pickup_hv_a": 200.0,
+    "trip_delay_s": 1.0,
+    "settings_basis": "Illustrative logic for a training demonstration; no relay coordination or protection-grade timing claim",
+    "latch_trip": true,
+    "reset_does_not_close_breaker": true
+  },
+  "alarm_examples": {
+    "bus_low_voltage_pu": 0.95,
+    "bus_high_voltage_pu": 1.05,
+    "t1_high_loading_percent": 90.0,
+    "model_heartbeat_timeout_s": 5.0,
+    "basis": "Training thresholds, not utility settings; voltage alarms require valid, energized-bus data"
+  },
+  "modbus": {
+    "host": "127.0.0.1",
+    "port": 1502,
+    "device_id": 1,
+    "ignition_device_name": "SubstationSim",
+    "zero_based_addressing": true,
+    "holding_register_allocation_inclusive": [
+      0,
+      127
+    ],
+    "discrete_input_allocation_inclusive": [
+      0,
+      15
+    ],
+    "reserved_addresses": "Allocated reserved points read as zero and are not used as measurements or commands",
+    "area_model": "Separate holding-register and discrete-input blocks in the full server",
+    "phase2_compatibility": {
+      "holding_register_0": "Voltage_Raw = line-side voltage in 0.01 kV",
+      "holding_register_1": "Heartbeat"
+    },
+    "scaling_rule": "engineering_value = raw_value * scale",
+    "signed_encoding": "Signed int16 values use two complement encoding and Ignition HR addressing; unsigned values use HRUS",
+    "overflow_policy": "Flag invalid data; do not silently wrap analog measurements"
+  },
+  "command_protocol": {
+    "code_offset": 100,
+    "sequence_offset": 101,
+    "ack_sequence_offset": 21,
+    "status_offset": 19,
+    "reason_offset": 20,
+    "commit_order": "Write code and wait for successful completion, then write a new sequence number; do not submit a second command while one is pending",
+    "processing": "Process each new sequence once; position feedback determines completion",
+    "codes": {
+      "0": "No command",
+      "1": "Open CB1",
+      "2": "Close CB1",
+      "3": "Reset cleared trip latches",
+      "4": "Start PV1",
+      "5": "Stop PV1"
+    },
+    "status_codes": {
+      "0": "Idle",
+      "1": "Pending",
+      "2": "Applied",
+      "3": "Rejected",
+      "4": "Failed"
+    },
+    "reason_codes": {
+      "0": "None",
+      "1": "Local mode",
+      "2": "Fault active",
+      "3": "Trip latched",
+      "4": "Grid unavailable",
+      "5": "Model invalid",
+      "6": "Busy",
+      "7": "Invalid command",
+      "8": "Out of range",
+      "9": "Other interlock"
+    }
+  },
+  "model_state_codes": {
+    "0": "Initializing",
+    "1": "Normal",
+    "2": "Downstream deenergized",
+    "3": "Fault scenario active",
+    "4": "Model invalid"
+  },
+  "conventions": {
+    "voltage": "Nominal voltage and voltage telemetry are line-to-line RMS",
+    "current": "CB1 current is the main transformer high-voltage winding RMS current; line charging current upstream may remain when CB1 is open",
+    "grid_p": "Positive means import into our modeled network; negative means export to the external grid",
+    "grid_q": "Positive means reactive import from the grid; negative means reactive export",
+    "solar_q": "Positive means reactive injection by PV1 into the AC network; negative means absorption",
+    "load_q": "Positive means reactive demand; negative means capacitive injection"
+  }
+}

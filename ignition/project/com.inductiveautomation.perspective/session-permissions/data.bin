@@ -1,0 +1,19 @@
+{
+  "type": "AllOf",
+  "securityLevels": [
+    {
+      "name": "Authenticated",
+      "children": [
+        {
+          "name": "Roles",
+          "children": [
+            {
+              "name": "Viewer",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

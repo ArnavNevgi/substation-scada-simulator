@@ -1,0 +1,177 @@
+{
+  "project": "SubstationSCADA",
+  "ignition_version": "8.3.10 (b2026100610)",
+  "recorded_utc": "2026-10-19T10:25:16.111008+00:00",
+  "status": "passed",
+  "method": "User operated the local Windows simulator and Ignition runtime; Codex visually reviewed the supplied screenshots.",
+  "scope": "Native Overview import/rendering and the eight screenshot observations listed here.",
+  "checks": [
+    {
+      "id": "normal",
+      "file": "01_normal.png",
+      "source": "image(20261019-100129).png",
+      "observation": "Native imported Overview renders with CB1 CLOSED, PV RUNNING, model VALID, bus ENERGIZED and telemetry HEALTHY. Grid 8056 kW, PV 2000 kW, bus 13.61 kV, T1 42.1%.",
+      "values": {
+        "cb1": "CLOSED",
+        "pv": "RUNNING",
+        "model": "VALID",
+        "bus": "ENERGIZED",
+        "telemetry": "HEALTHY",
+        "grid_kw": 8056,
+        "pv_kw": 2000,
+        "bus_kv": 13.61,
+        "t1_loading_pct": 42.1
+      },
+      "status": "passed",
+      "sha256": "d5306e413b0f112afb4c0c141de2b87c5128690f323fb16370574d4bda7f391c"
+    },
+    {
+      "id": "pv_stopped",
+      "file": "02_pv_stopped.png",
+      "source": "image(20261019-100402).png",
+      "observation": "PV reads STOPPED and 0 kW. Grid-fed bus and T2 AC conductors stay green; CB1 remains CLOSED and telemetry HEALTHY. Grid 10053 kW, bus 13.60 kV, T1 51.9%.",
+      "values": {
+        "pv": "STOPPED",
+        "pv_kw": 0,
+        "cb1": "CLOSED",
+        "telemetry": "HEALTHY",
+        "grid_kw": 10053,
+        "bus_kv": 13.6,
+        "t1_loading_pct": 51.9,
+        "t2_ac_conductor": "green"
+      },
+      "status": "passed",
+      "sha256": "2d6817ef744d49a42694dbb4218c603be3732d25072647ea5c16b0630a8050b5"
+    },
+    {
+      "id": "pv_restarted",
+      "file": "03_pv_restarted_controls.png",
+      "source": "image(20261019-100414).png",
+      "observation": "Controls displays START PV1 sequence 7 APPLIED. PV is RUNNING, CB1 CLOSED and model VALID; grid 8056 kW and PV 2000 kW.",
+      "values": {
+        "command": "START PV1",
+        "sequence": 7,
+        "result": "APPLIED",
+        "pv": "RUNNING",
+        "cb1": "CLOSED",
+        "model": "VALID",
+        "grid_kw": 8056,
+        "pv_kw": 2000
+      },
+      "status": "passed",
+      "sha256": "222096ea8da391f0a0def7eae04709cc20498976addb6ed95db808f831cf6880"
+    },
+    {
+      "id": "cb1_open",
+      "file": "04_cb1_open.png",
+      "source": "image(20261019-101705).png",
+      "observation": "CB1 OPEN has a visible gap. Upstream grid remains green; downstream conductors are gray, bus DE-ENERGIZED, PV TRIPPED in red. Grid/PV/bus/T1/served load read zero. The isolated model is VALID and telemetry HEALTHY.",
+      "values": {
+        "cb1": "OPEN",
+        "pv": "TRIPPED",
+        "model": "VALID",
+        "bus": "DE-ENERGIZED",
+        "telemetry": "HEALTHY",
+        "grid_kw": 0,
+        "pv_kw": 0,
+        "bus_kv": 0,
+        "t1_loading_pct": 0,
+        "served_load_kw": 0,
+        "upstream_conductor": "green",
+        "downstream_conductors": "gray",
+        "pv_indication": "red"
+      },
+      "status": "passed",
+      "sha256": "481db9374d4629e4661fef33d5b6b4b8fbcf7c1d367e6c1d98f57fc0ee1bb221"
+    },
+    {
+      "id": "cb1_restored",
+      "file": "05_cb1_restored.png",
+      "source": "image(20261019-101729).png",
+      "observation": "Overview is back to CB1 CLOSED, PV RUNNING, model VALID, bus ENERGIZED and telemetry HEALTHY. Grid 8056 kW, PV 2000 kW, bus 13.61 kV, T1 42.1%, served load 10000 kW.",
+      "values": {
+        "cb1": "CLOSED",
+        "pv": "RUNNING",
+        "model": "VALID",
+        "bus": "ENERGIZED",
+        "telemetry": "HEALTHY",
+        "grid_kw": 8056,
+        "pv_kw": 2000,
+        "bus_kv": 13.61,
+        "t1_loading_pct": 42.1,
+        "served_load_kw": 10000
+      },
+      "status": "passed",
+      "sha256": "53b08213bfc9650ef031b6edfb4afc8f1d9eaea5daa9fa7aa21f6a3544731f0b"
+    },
+    {
+      "id": "restoration_audit",
+      "file": "06_restoration_audit.png",
+      "source": "image(20261019-101738).png",
+      "observation": "CommandHistory shows operator1 APPLIED for sequences 8 OPEN CB1, 9 RESET TRIPS, 10 CLOSE CB1 and 11 START PV1. Matching REQUESTED/APPLIED pairs are fully visible for 9, 10 and 11; the sequence 8 REQUESTED row is partly below the screenshot crop.",
+      "values": {
+        "actor": "operator1",
+        "applied_sequences": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "fully_visible_requested_applied_pairs": [
+          9,
+          10,
+          11
+        ]
+      },
+      "status": "passed",
+      "sha256": "fb07aef4989141ac0eff518ecd8597fa10eba1eb809b523ca867c57e2fe10835"
+    },
+    {
+      "id": "communication_outage",
+      "file": "07_communication_outage.png",
+      "source": "image(20261019-102039).png",
+      "observation": "Overview reads DATA UNAVAILABLE. All conductors are amber; CB1 has a question mark and UNKNOWN text; PV, model and bus are UNKNOWN. All four KPIs and served-load text are unavailable. Telemetry reads CHECK ALARMS - data unavailable or invalid.",
+      "values": {
+        "cb1": "UNKNOWN",
+        "pv": "UNKNOWN",
+        "model": "UNKNOWN",
+        "bus": "UNKNOWN",
+        "conductors": "amber",
+        "cb1_symbol": "question mark",
+        "measurements": "unavailable",
+        "telemetry": "CHECK ALARMS - data unavailable or invalid"
+      },
+      "status": "passed",
+      "sha256": "af5d448588001b2a9b749f76d199b90f66490ae0b6dc4b608eb5d55bd255d2dc"
+    },
+    {
+      "id": "communication_recovery",
+      "file": "08_communication_recovery.png",
+      "source": "image(20261019-102103).png",
+      "observation": "Overview again reads telemetry HEALTHY, model VALID, CB1 CLOSED, PV RUNNING and bus ENERGIZED. Conductors are green. Grid 8056 kW, PV 2000 kW, bus 13.61 kV, T1 42.1%, served load 10000 kW.",
+      "values": {
+        "cb1": "CLOSED",
+        "pv": "RUNNING",
+        "model": "VALID",
+        "bus": "ENERGIZED",
+        "telemetry": "HEALTHY",
+        "conductors": "green",
+        "grid_kw": 8056,
+        "pv_kw": 2000,
+        "bus_kv": 13.61,
+        "t1_loading_pct": 42.1,
+        "served_load_kw": 10000
+      },
+      "status": "passed",
+      "sha256": "92751b1476bdfbd49e6dd52a36b2c6cb587fe42ecdd777339c1ee481ba8516cb"
+    }
+  ],
+  "limits": [
+    "Screenshot evidence establishes displayed states, not measured end-to-end latency or exact timeout duration.",
+    "The local simulated model and illustrative equipment ratings do not establish behavior of field equipment.",
+    "No live Gateway or Windows simulator was directly operated from the Linux build environment.",
+    "A simulator restart may initialize its states; this record does not claim that restart preserved equipment state."
+  ],
+  "included_native_project_sha256": "a4b68c26e9e66db1c23c46e085c8582a1ef18b676643c8663ea67b000e767e89",
+  "included_project_relationship": "The latest exported Overview JSON equals the reviewed Overview."
+}

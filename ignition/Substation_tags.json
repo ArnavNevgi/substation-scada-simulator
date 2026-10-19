@@ -1,0 +1,1111 @@
+{
+  "name": "Substation",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "name": "Diagnostics",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "dataType": "Int4",
+          "documentation": "Sequence of the command currently acknowledged. Read together with Command_Status to distinguish pending and completed operations Phase 5 placeholder; command and fault logic is reserved for Phase 7.",
+          "name": "Command_Ack_Sequence",
+          "opcItemPath": "[SubstationSim]1.HRUS21",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Completed model-update attempts, modulo 65536. Independent of client polling; validity is a separate point; freeze testing stops this counter",
+          "name": "Heartbeat",
+          "opcItemPath": "[SubstationSim]1.HRUS1",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Command protocol reason code.  Phase 5 placeholder; command and fault logic is reserved for Phase 7.",
+          "name": "Command_Reason",
+          "opcItemPath": "[SubstationSim]1.HRUS20",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Command protocol status code. Command acceptance does not substitute for equipment-position feedback Phase 5 placeholder; command and fault logic is reserved for Phase 7.",
+          "name": "Command_Status",
+          "opcItemPath": "[SubstationSim]1.HRUS19",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Model state code defined in substation.json. ",
+          "name": "Model_State",
+          "opcItemPath": "[SubstationSim]1.HRUS18",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        }
+      ]
+    },
+    {
+      "name": "Inputs",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "dataType": "Int4",
+          "documentation": "Available sunlight, range 0..1000; initial 1000. Simulation input, not a PV MPPT calculation",
+          "engUnit": "W/m2",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Irradiance_Set_W_m2",
+          "opcItemPath": "[SubstationSim]1.HRUS112",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Requested reactive demand, range -5000..5000; initial 2000. Simulation input",
+          "engUnit": "kVAr",
+          "name": "Load_Q_Set_kVAr",
+          "opcItemPath": "[SubstationSim]1.HR111",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Requested reactive output, range -2500..2500; initial 0. Actual Q is clipped to the remaining apparent-power capability",
+          "engUnit": "kVAr",
+          "name": "PV_Q_Set_kVAr",
+          "opcItemPath": "[SubstationSim]1.HR114",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Active-power cap, range 0..2000; initial 2000. PV curtailment setpoint",
+          "engUnit": "kW",
+          "name": "PV_P_Limit_Set_kW",
+          "opcItemPath": "[SubstationSim]1.HRUS113",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Phase 7 simulation input: 0 fault removed, 1 three-phase fault present at BUS_13_8. Removal does not reset trip latches.",
+          "name": "Fault_Enable",
+          "opcItemPath": "[SubstationSim]1.HRUS115",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Requested active demand, range 0..25000; initial 10000. Simulation input; upper range permits transformer overload demonstrations",
+          "engUnit": "kW",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Load_P_Set_kW",
+          "opcItemPath": "[SubstationSim]1.HRUS110",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "0 \u003d local, 1 \u003d remote; initial 1. Simulation of a local/remote selector; operating commands require remote mode",
+          "name": "Remote_Mode_Set",
+          "opcItemPath": "[SubstationSim]1.HRUS116",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "dataType": "Boolean",
+          "defaultValue": false,
+          "documentation": "Phase 8 Gateway monitor output; do not operate equipment with this tag.",
+          "name": "Model_Valid_Observed",
+          "tagType": "AtomicTag",
+          "value": true,
+          "valueSource": "memory"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "{[default]Substation/Health/Communications_Healthy} \u0026\u0026 {[default]Substation/Health/Model_Valid_Observed}",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Telemetry_Usable",
+          "sampleMode": "Periodic",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Boolean",
+          "defaultValue": false,
+          "documentation": "Phase 8 Gateway monitor output; do not operate equipment with this tag.",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Tag_Quality_Good",
+          "sampleMode": "Periodic",
+          "tagType": "AtomicTag",
+          "value": true,
+          "valueSource": "memory"
+        },
+        {
+          "dataType": "Boolean",
+          "defaultValue": false,
+          "documentation": "Phase 8 Gateway monitor output; do not operate equipment with this tag.",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Heartbeat_Fresh",
+          "sampleMode": "Periodic",
+          "tagType": "AtomicTag",
+          "value": true,
+          "valueSource": "memory"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "displayPath": "Substation/Health monitor stopped",
+              "label": "Health monitor stopped",
+              "mode": "WhenFalse",
+              "name": "P8_MonitorStopped",
+              "priority": "High",
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 3.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Boolean",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "(toMillis(now(1000)) - toMillis({[default]Substation/Health/Last_Monitor_Tick})) \u003e\u003d 0 \u0026\u0026 (toMillis(now(1000)) - toMillis({[default]Substation/Health/Last_Monitor_Tick})) \u003c\u003d 5000",
+          "name": "Monitor_Alive",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "defaultValue": -1.0,
+          "documentation": "Phase 8 Gateway monitor output; do not operate equipment with this tag.",
+          "name": "Heartbeat_Age_s",
+          "tagType": "AtomicTag",
+          "value": 0.0,
+          "valueSource": "memory"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "{[default]Substation/Health/Monitor_Alive} \u0026\u0026 {[default]Substation/Health/Tag_Quality_Good} \u0026\u0026 {[default]Substation/Health/Heartbeat_Fresh}",
+          "name": "Communications_Healthy",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "displayPath": "Substation/Electrical model invalid",
+              "label": "Electrical model invalid",
+              "mode": "WhenTrue",
+              "name": "P8_ModelInvalid",
+              "priority": "High",
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 3.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Boolean",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "{[default]Substation/Health/Communications_Healthy} \u0026\u0026 !{[default]Substation/Health/Model_Valid_Observed}",
+          "name": "Model_Invalid",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "displayPath": "Substation/Bad tag quality or invalid data",
+              "label": "Bad tag quality or invalid data",
+              "mode": "WhenTrue",
+              "name": "P8_BadQuality",
+              "priority": "High",
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 2.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Boolean",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "{[default]Substation/Health/Monitor_Alive} \u0026\u0026 !{[default]Substation/Health/Tag_Quality_Good}",
+          "name": "Bad_Tag_Quality",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "{[default]Substation/Health/Telemetry_Usable} \u0026\u0026 {[default]Substation/Health/Bus_Energized_Observed}",
+          "name": "Electrical_Alarms_Enabled",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "displayPath": "Substation/Simulator heartbeat stalled",
+              "label": "Simulator heartbeat stalled",
+              "mode": "WhenTrue",
+              "name": "P8_HeartbeatStalled",
+              "priority": "High",
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 2.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Boolean",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "{[default]Substation/Health/Monitor_Alive} \u0026\u0026 {[default]Substation/Health/Tag_Quality_Good} \u0026\u0026 !{[default]Substation/Health/Heartbeat_Fresh} \u0026\u0026 {[default]Substation/Health/Heartbeat_Age_s} \u003e\u003d 5",
+          "name": "Heartbeat_Stalled",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "DateTime",
+          "defaultValue": null,
+          "documentation": "Phase 8 Gateway monitor output; do not operate equipment with this tag.",
+          "name": "Last_Monitor_Tick",
+          "tagType": "AtomicTag",
+          "value": 1792401402448,
+          "valueSource": "memory"
+        },
+        {
+          "dataType": "String",
+          "documentation": "Phase 8 derived telemetry-health status.",
+          "expression": "if({[default]Substation/Health/Monitor_Alive}, {[default]Substation/Health/Detail}, \"MONITOR NOT RUNNING: check Gateway Timer\")",
+          "name": "Summary",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Boolean",
+          "defaultValue": false,
+          "documentation": "Phase 8 Gateway monitor output; do not operate equipment with this tag.",
+          "name": "Bus_Energized_Observed",
+          "tagType": "AtomicTag",
+          "value": true,
+          "valueSource": "memory"
+        },
+        {
+          "dataType": "String",
+          "defaultValue": "MONITOR NOT STARTED",
+          "documentation": "Phase 8 Gateway monitor output; do not operate equipment with this tag.",
+          "name": "Detail",
+          "tagType": "AtomicTag",
+          "value": "HEALTHY: quality good, heartbeat changing, model valid",
+          "valueSource": "memory"
+        }
+      ]
+    },
+    {
+      "name": "Measurements",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "dataType": "Float8",
+          "documentation": "2100 * irradiance / 1000. Available solar power is distinct from DC power actually drawn by the inverter Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kW",
+          "expression": "{[default]Substation/Raw/PV_Available_DC_kW} * 1.0",
+          "formatString": "0",
+          "name": "PV_Available_DC_kW",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "T1 high-voltage winding current. Zero with CB1 open; not the total upstream line charging current Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "A",
+          "expression": "{[default]Substation/Raw/CB1_Current_A} * 0.1",
+          "formatString": "0.0",
+          "name": "CB1_Current_A",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Last-event initial symmetrical RMS fault-current estimate at BUS_13_8. Retained after a trip until reset; not the live current in a deenergized bus or a recorded waveform Phase 5 placeholder; command and fault logic is reserved for Phase 7. Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kA",
+          "expression": "{[default]Substation/Raw/LastFault_Ikss_kA} * 0.001",
+          "formatString": "0.000",
+          "name": "LastFault_Ikss_kA",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Voltage at LINE_SIDE_115. Preserves the existing Phase 2 Voltage_Raw register; upstream voltage can remain present with CB1 open Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kV",
+          "expression": "{[default]Substation/Raw/LineSide_Voltage_kV} * 0.01",
+          "formatString": "0.00",
+          "name": "LineSide_Voltage_kV",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Actual PV AC active power divided by assumed efficiency. Zero when idle; standby losses excluded Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kW",
+          "expression": "{[default]Substation/Raw/PV_DC_Power_kW} * 1.0",
+          "formatString": "0",
+          "name": "PV_DC_Power_kW",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Assumed nominal system frequency of 60 Hz. Not a measured dynamic-frequency response or a PMU signal Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "Hz",
+          "expression": "{[default]Substation/Raw/Grid_Frequency_Hz} * 0.01",
+          "formatString": "0.00",
+          "name": "Grid_Frequency_Hz",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "External-grid active power, positive import and negative export.  Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kW",
+          "expression": "{[default]Substation/Raw/Grid_P_kW} * 1.0",
+          "formatString": "0",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Grid_P_kW",
+          "readOnly": true,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "deadband": 3.0,
+              "deadbandMode": "Absolute",
+              "displayPath": "Substation/T1 loading above 90 percent",
+              "enabled": {
+                "bindType": "Expression",
+                "value": "{[default]Substation/Health/Telemetry_Usable}"
+              },
+              "inclusiveA": false,
+              "label": "T1 loading above 90 percent",
+              "mode": "AboveValue",
+              "name": "P8_T1High",
+              "priority": "Medium",
+              "setpointA": 90.0,
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 3.0,
+              "timestampSource": "System"
+            },
+            {
+              "ackMode": "Manual",
+              "deadband": 3.0,
+              "deadbandMode": "Absolute",
+              "displayPath": "Substation/T1 overload above 100 percent",
+              "enabled": {
+                "bindType": "Expression",
+                "value": "{[default]Substation/Health/Telemetry_Usable}"
+              },
+              "inclusiveA": false,
+              "label": "T1 overload above 100 percent",
+              "mode": "AboveValue",
+              "name": "P8_T1Overload",
+              "priority": "High",
+              "setpointA": 100.0,
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 3.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Float8",
+          "documentation": "Main transformer loading from pandapower results.  Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "%",
+          "expression": "{[default]Substation/Raw/T1_Loading_pct} * 0.1",
+          "formatString": "0.0",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "T1_Loading_pct",
+          "readOnly": true,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "deadband": 0.138,
+              "deadbandMode": "Absolute",
+              "displayPath": "Substation/13.8 kV bus high voltage",
+              "enabled": {
+                "bindType": "Expression",
+                "value": "{[default]Substation/Health/Electrical_Alarms_Enabled}"
+              },
+              "inclusiveA": false,
+              "label": "13.8 kV bus high voltage",
+              "mode": "AboveValue",
+              "name": "P8_BusHigh",
+              "priority": "Medium",
+              "setpointA": 14.49,
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 3.0,
+              "timestampSource": "System"
+            },
+            {
+              "ackMode": "Manual",
+              "deadband": 0.138,
+              "deadbandMode": "Absolute",
+              "displayPath": "Substation/13.8 kV bus low voltage",
+              "enabled": {
+                "bindType": "Expression",
+                "value": "{[default]Substation/Health/Electrical_Alarms_Enabled}"
+              },
+              "inclusiveA": false,
+              "label": "13.8 kV bus low voltage",
+              "mode": "BelowValue",
+              "name": "P8_BusLow",
+              "priority": "Medium",
+              "setpointA": 13.11,
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 3.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Float8",
+          "documentation": "Voltage at BUS_13_8. Zero only for a known deenergized bus; failed solves retain last valid data and clear Model_Valid Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kV",
+          "expression": "{[default]Substation/Raw/Bus_Voltage_kV} * 0.01",
+          "formatString": "0.00",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Bus_Voltage_kV",
+          "readOnly": true,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "External-grid reactive power, positive import.  Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kVAr",
+          "expression": "{[default]Substation/Raw/Grid_Q_kVAr} * 1.0",
+          "formatString": "0",
+          "name": "Grid_Q_kVAr",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Actual inverter AC active power before T2 losses. P limited by solar availability, efficiency, curtailment and operating state Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kW",
+          "expression": "{[default]Substation/Raw/PV_AC_Power_kW} * 1.0",
+          "formatString": "0",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "PV_AC_Power_kW",
+          "readOnly": true,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Actual inverter AC reactive power before T2. Positive injection; enforce P squared plus Q squared \u003c\u003d S rated squared Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kVAr",
+          "expression": "{[default]Substation/Raw/PV_Q_kVAr} * 1.0",
+          "formatString": "0",
+          "name": "PV_Q_kVAr",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Illustrative thermal state in Python. Not a semiconductor switching or calibrated thermal model Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "degC",
+          "expression": "{[default]Substation/Raw/PV_Temperature_C} * 0.1",
+          "formatString": "0.0",
+          "name": "PV_Temperature_C",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Assumed 1000 V when solar power is available. May remain present while the AC inverter is disconnected Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "V",
+          "expression": "{[default]Substation/Raw/PV_DC_Voltage_V} * 1.0",
+          "formatString": "0",
+          "name": "PV_DC_Voltage_V",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "1000 * PV_DC_Power_kW / PV_DC_Voltage_V. Zero when no DC power is drawn; handle zero voltage without division Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "A",
+          "expression": "{[default]Substation/Raw/PV_DC_Current_A} * 0.1",
+          "formatString": "0.0",
+          "name": "PV_DC_Current_A",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Actual served active load power. Demand remains at its setpoint when the load is unsupplied; actual served power becomes zero Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kW",
+          "expression": "{[default]Substation/Raw/Load_P_kW} * 1.0",
+          "formatString": "0",
+          "name": "Load_P_kW",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "100 * AC active power / actual DC input power. 98 percent while operating in this model; encode 0 when idle and show N/A in HMI when DC input is zero Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "%",
+          "expression": "{[default]Substation/Raw/PV_Efficiency_pct} * 0.01",
+          "formatString": "0.00",
+          "name": "PV_Efficiency_pct",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        },
+        {
+          "dataType": "Float8",
+          "documentation": "Actual served reactive load power.  Engineering value \u003d decoded raw value times scale. Check Status/Model_Valid and heartbeat before using this value.",
+          "engUnit": "kVAr",
+          "expression": "{[default]Substation/Raw/Load_Q_kVAr} * 1.0",
+          "formatString": "0",
+          "name": "Load_Q_kVAr",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "expr"
+        }
+      ]
+    },
+    {
+      "name": "Commands",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "dataType": "Int4",
+          "documentation": "A new sequence commits the payload once. Wait for matching acknowledgement, terminal status, and equipment feedback.",
+          "name": "Command_Sequence",
+          "opcItemPath": "[SubstationSim]1.HRUS101",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Phase 7 command payload: 1 open, 2 close, 3 reset, 4 PV enable, 5 PV stop. Write before sequence.",
+          "name": "Command_Code",
+          "opcItemPath": "[SubstationSim]1.HRUS100",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": false,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        }
+      ]
+    },
+    {
+      "name": "Raw",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "dataType": "Int4",
+          "documentation": "1000 * PV_DC_Power_kW / PV_DC_Voltage_V. Zero when no DC power is drawn; handle zero voltage without division",
+          "name": "PV_DC_Current_A",
+          "opcItemPath": "[SubstationSim]1.HRUS12",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Voltage at LINE_SIDE_115. Preserves the existing Phase 2 Voltage_Raw register; upstream voltage can remain present with CB1 open",
+          "name": "LineSide_Voltage_kV",
+          "opcItemPath": "[SubstationSim]1.HRUS0",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "External-grid reactive power, positive import. ",
+          "name": "Grid_Q_kVAr",
+          "opcItemPath": "[SubstationSim]1.HR5",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Actual inverter AC active power before T2 losses. P limited by solar availability, efficiency, curtailment and operating state",
+          "name": "PV_AC_Power_kW",
+          "opcItemPath": "[SubstationSim]1.HRUS13",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Actual PV AC active power divided by assumed efficiency. Zero when idle; standby losses excluded",
+          "name": "PV_DC_Power_kW",
+          "opcItemPath": "[SubstationSim]1.HRUS10",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Illustrative thermal state in Python. Not a semiconductor switching or calibrated thermal model",
+          "name": "PV_Temperature_C",
+          "opcItemPath": "[SubstationSim]1.HR16",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Actual inverter AC reactive power before T2. Positive injection; enforce P squared plus Q squared \u003c\u003d S rated squared",
+          "name": "PV_Q_kVAr",
+          "opcItemPath": "[SubstationSim]1.HR14",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Assumed 1000 V when solar power is available. May remain present while the AC inverter is disconnected",
+          "name": "PV_DC_Voltage_V",
+          "opcItemPath": "[SubstationSim]1.HRUS11",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Voltage at BUS_13_8. Zero only for a known deenergized bus; failed solves retain last valid data and clear Model_Valid",
+          "name": "Bus_Voltage_kV",
+          "opcItemPath": "[SubstationSim]1.HRUS2",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "External-grid active power, positive import and negative export. ",
+          "name": "Grid_P_kW",
+          "opcItemPath": "[SubstationSim]1.HR4",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Last-event initial symmetrical RMS fault-current estimate at BUS_13_8. Retained after a trip until reset; not the live current in a deenergized bus or a recorded waveform Phase 5 placeholder; command and fault logic is reserved for Phase 7.",
+          "name": "LastFault_Ikss_kA",
+          "opcItemPath": "[SubstationSim]1.HRUS22",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Assumed nominal system frequency of 60 Hz. Not a measured dynamic-frequency response or a PMU signal",
+          "name": "Grid_Frequency_Hz",
+          "opcItemPath": "[SubstationSim]1.HRUS17",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Actual served active load power. Demand remains at its setpoint when the load is unsupplied; actual served power becomes zero",
+          "name": "Load_P_kW",
+          "opcItemPath": "[SubstationSim]1.HRUS6",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Actual served reactive load power. ",
+          "name": "Load_Q_kVAr",
+          "opcItemPath": "[SubstationSim]1.HR7",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "Main transformer loading from pandapower results. ",
+          "name": "T1_Loading_pct",
+          "opcItemPath": "[SubstationSim]1.HRUS8",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "100 * AC active power / actual DC input power. 98 percent while operating in this model; encode 0 when idle and show N/A in HMI when DC input is zero",
+          "name": "PV_Efficiency_pct",
+          "opcItemPath": "[SubstationSim]1.HRUS15",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "T1 high-voltage winding current. Zero with CB1 open; not the total upstream line charging current",
+          "name": "CB1_Current_A",
+          "opcItemPath": "[SubstationSim]1.HRUS3",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Int4",
+          "documentation": "2100 * irradiance / 1000. Available solar power is distinct from DC power actually drawn by the inverter",
+          "name": "PV_Available_DC_kW",
+          "opcItemPath": "[SubstationSim]1.HRUS9",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        }
+      ]
+    },
+    {
+      "name": "Status",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "displayPath": "Substation/Simulated bus fault present",
+              "enabled": {
+                "bindType": "Expression",
+                "value": "{[default]Substation/Health/Communications_Healthy}"
+              },
+              "label": "Simulated bus fault present",
+              "mode": "WhenTrue",
+              "name": "P8_FaultActive",
+              "priority": "High",
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 0.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Boolean",
+          "documentation": "Fault scenario is currently enabled. Distinct from a retained trip indication Phase 5 placeholder; command and fault logic is reserved for Phase 7.",
+          "name": "Fault_Active",
+          "opcItemPath": "[SubstationSim]1.DI7",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "displayPath": "Substation/CB1 protection trip latched",
+              "enabled": {
+                "bindType": "Expression",
+                "value": "{[default]Substation/Health/Communications_Healthy}"
+              },
+              "label": "CB1 protection trip latched",
+              "mode": "WhenTrue",
+              "name": "P8_CB1Trip",
+              "priority": "High",
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 0.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Boolean",
+          "documentation": "Main breaker protection-trip latch. Reset requires the fault to be removed; reset does not close CB1 Phase 5 placeholder; command and fault logic is reserved for Phase 7.",
+          "name": "Trip_Latched",
+          "opcItemPath": "[SubstationSim]1.DI1",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Latest expected model results are valid. False on failed solves or invalid analog encoding; known isolation is a valid operating state",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "Model_Valid",
+          "opcItemPath": "[SubstationSim]1.DI4",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Confirmed breaker position: true closed, false open. Separate from the open/close command",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "CB1_Closed",
+          "opcItemPath": "[SubstationSim]1.DI0",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Inverter is connected and operating. ",
+          "historicalDeadbandMode": "Off",
+          "historyEnabled": true,
+          "historyProvider": "SubstationHistory",
+          "historySampleRate": 1,
+          "includeMetadata": true,
+          "name": "PV_Running",
+          "opcItemPath": "[SubstationSim]1.DI2",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "sampleMode": "Periodic",
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Upstream grid source is available. May be true while CB1 is open; inverter also requires its own AC bus to be energized",
+          "name": "Grid_Available",
+          "opcItemPath": "[SubstationSim]1.DI3",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "BUS_13_8 has an energized connection to a grid reference. Our grid-following inverter cannot energize an island",
+          "name": "Bus_Energized",
+          "opcItemPath": "[SubstationSim]1.DI5",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "dataType": "Boolean",
+          "documentation": "Feedback of the simulated local/remote selector. ",
+          "name": "Remote_Mode",
+          "opcItemPath": "[SubstationSim]1.DI6",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        },
+        {
+          "alarmEvalEnabled": true,
+          "alarms": [
+            {
+              "ackMode": "Manual",
+              "displayPath": "Substation/PV trip latched",
+              "enabled": {
+                "bindType": "Expression",
+                "value": "{[default]Substation/Health/Communications_Healthy}"
+              },
+              "label": "PV trip latched",
+              "mode": "WhenTrue",
+              "name": "P8_PVTrip",
+              "priority": "Medium",
+              "timeOffDelaySeconds": 0.0,
+              "timeOnDelaySeconds": 0.0,
+              "timestampSource": "System"
+            }
+          ],
+          "dataType": "Boolean",
+          "documentation": "Inverter protective trip latch. A normal night stop or operator stop is not a protective trip Phase 5 placeholder; command and fault logic is reserved for Phase 7.",
+          "name": "PV_Tripped",
+          "opcItemPath": "[SubstationSim]1.DI8",
+          "opcServer": "Ignition OPC UA Server",
+          "readOnly": true,
+          "tagGroup": "Default",
+          "tagType": "AtomicTag",
+          "valueSource": "opc"
+        }
+      ]
+    }
+  ]
+}

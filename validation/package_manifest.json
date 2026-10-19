@@ -1,0 +1,492 @@
+{
+  "created_utc": "2026-10-19T20:27:58.071031+00:00",
+  "repository": "substation-scada-simulator",
+  "native_project_export_original": "SubstationSCADA_20261020014401.zip",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 132,
+      "sha256": "e768fb24c410f36dd05f3b10262f63e8e858cecfe851ef622f0125f1e81fbaef"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "bytes": 1215,
+      "sha256": "f648b926fbd779f447269ef6711839ba4ba3eb7ffc94f6f3c787140ae97e3827"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 121,
+      "sha256": "1725f9f6cd34fc8eb71923b3e47b561e6fa3468a72f62037a1a94bc2be250517"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6489,
+      "sha256": "ae1f9a921e65a3d142c3910aa4752ba5519f9eae2cf6ad3b45782d209b13c04a"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 4409,
+      "sha256": "75f63c5fc3de2de9383b61bfb073c1ffccb480d6773c9610db4066797dfeffae"
+    },
+    {
+      "path": "docs/command-protocol.md",
+      "bytes": 4358,
+      "sha256": "1d605583594176699f68f836ffd56520d18bb94ee8d914bcf1c3428a6838b583"
+    },
+    {
+      "path": "docs/electrical-design-notes.md",
+      "bytes": 11285,
+      "sha256": "522fb77309b3250668ae54233b3aeea5918a5188953f4b6e68981eb599add9f1"
+    },
+    {
+      "path": "docs/provenance.json",
+      "bytes": 15538,
+      "sha256": "cd47f3b6f44d494a21e1888b991ff8f0ccbda520ad0c85d25e7c4a3866a9b349"
+    },
+    {
+      "path": "docs/publish-github.md",
+      "bytes": 2730,
+      "sha256": "2a096e1bff646649e473efe1f4d445bb3b3d99fdaa0aecf37f38dcfe6eee023d"
+    },
+    {
+      "path": "docs/scope-and-limitations.md",
+      "bytes": 3628,
+      "sha256": "fb9b82491235525e5980c5149e2fa6685360881dab8836a7d199650b8d628755"
+    },
+    {
+      "path": "docs/security-and-health.md",
+      "bytes": 4212,
+      "sha256": "b42df4788c7427f9cf56a2a08ee8aac972f578c469c748fdfb7a4198e2a5e0bb"
+    },
+    {
+      "path": "docs/setup.md",
+      "bytes": 6976,
+      "sha256": "0507218b609c4a7b903e9d45e4e3b2572f93366097c612111daeef4cdb97796b"
+    },
+    {
+      "path": "docs/verification.md",
+      "bytes": 4938,
+      "sha256": "a14c1efdd39c26399ad81e39c3570e05d176eb6ae0c93f73140f154563dcebc8"
+    },
+    {
+      "path": "evidence/live-overview/01_normal.png",
+      "bytes": 93476,
+      "sha256": "d5306e413b0f112afb4c0c141de2b87c5128690f323fb16370574d4bda7f391c"
+    },
+    {
+      "path": "evidence/live-overview/02_pv_stopped.png",
+      "bytes": 92348,
+      "sha256": "2d6817ef744d49a42694dbb4218c603be3732d25072647ea5c16b0630a8050b5"
+    },
+    {
+      "path": "evidence/live-overview/03_pv_restarted_controls.png",
+      "bytes": 68653,
+      "sha256": "222096ea8da391f0a0def7eae04709cc20498976addb6ed95db808f831cf6880"
+    },
+    {
+      "path": "evidence/live-overview/04_cb1_open.png",
+      "bytes": 86604,
+      "sha256": "481db9374d4629e4661fef33d5b6b4b8fbcf7c1d367e6c1d98f57fc0ee1bb221"
+    },
+    {
+      "path": "evidence/live-overview/05_cb1_restored.png",
+      "bytes": 92456,
+      "sha256": "53b08213bfc9650ef031b6edfb4afc8f1d9eaea5daa9fa7aa21f6a3544731f0b"
+    },
+    {
+      "path": "evidence/live-overview/06_restoration_audit.png",
+      "bytes": 173020,
+      "sha256": "fb07aef4989141ac0eff518ecd8597fa10eba1eb809b523ca867c57e2fe10835"
+    },
+    {
+      "path": "evidence/live-overview/07_communication_outage.png",
+      "bytes": 97233,
+      "sha256": "af5d448588001b2a9b749f76d199b90f66490ae0b6dc4b608eb5d55bd255d2dc"
+    },
+    {
+      "path": "evidence/live-overview/08_communication_recovery.png",
+      "bytes": 94331,
+      "sha256": "92751b1476bdfbd49e6dd52a36b2c6cb587fe42ecdd777339c1ee481ba8516cb"
+    },
+    {
+      "path": "evidence/live-overview/README.md",
+      "bytes": 3136,
+      "sha256": "c70303d2f28855c59168126b8f298ac90c3da99734febb777ad5861488b3171e"
+    },
+    {
+      "path": "evidence/live-overview/live_acceptance.json",
+      "bytes": 6994,
+      "sha256": "f03767f853562e33f1ac33e1e741ef9b65e9109002dc165696ebd6f6030c8d65"
+    },
+    {
+      "path": "evidence/modbus/README.md",
+      "bytes": 6678,
+      "sha256": "6fc6e77643a9fddd02f0f7105f71b597c598d4ed7652ae681b327196e9012868"
+    },
+    {
+      "path": "evidence/modbus/analyze_capture.py",
+      "bytes": 16460,
+      "sha256": "addede8c68476c1116e3d3ed0d96420615897f756ffc426796ab1b435f9210e1"
+    },
+    {
+      "path": "evidence/modbus/manifest.json",
+      "bytes": 640,
+      "sha256": "0248ce13084694abb2198358ff578f27575a8d37e5c89c057eccd6ef174dca6e"
+    },
+    {
+      "path": "evidence/modbus/modbus_control_cycle.pcapng",
+      "bytes": 36268,
+      "sha256": "3153d5955603a819351ba8edacfe9f16b205de33d92956b0941722e4ddbd3854"
+    },
+    {
+      "path": "evidence/modbus/register_map.json",
+      "bytes": 4128,
+      "sha256": "98f46c722fff008404aef60c4f07ba1f55d0c9adfb650475372458de66c857a1"
+    },
+    {
+      "path": "evidence/modbus/results/analysis.json",
+      "bytes": 147082,
+      "sha256": "38d25b7f216746ff8b74b0139b80be72dcdb9fe07b8a0c0433a110ef82bd7368"
+    },
+    {
+      "path": "evidence/modbus/results/commands.csv",
+      "bytes": 441,
+      "sha256": "c808932e8f18a03a6667660faa0d6676bfa459cc628f98d0f5259d671e3dc25c"
+    },
+    {
+      "path": "evidence/modbus/results/discrete_telemetry.csv",
+      "bytes": 2063,
+      "sha256": "a7886400524f6116991ce4f2dd769b1b8713cf9e025aef0089b0abf61ece521b"
+    },
+    {
+      "path": "evidence/modbus/results/holding_telemetry.csv",
+      "bytes": 2827,
+      "sha256": "ad86b6a4afc0a34b037734a847ad8fe1fbe4b0916dba30935bd2edb3488ce5dc"
+    },
+    {
+      "path": "evidence/modbus/results/modbus_messages.csv",
+      "bytes": 44561,
+      "sha256": "b1bdc79cbea9b4643d34f1adedfadbf7f636830ebbe34e717c333e5fd4221008"
+    },
+    {
+      "path": "evidence/modbus/results/verification.json",
+      "bytes": 216,
+      "sha256": "f5466ebdf4d99ff063aae0b205b3c2740738250005306a40d610b3922d542535"
+    },
+    {
+      "path": "evidence/modbus/test_analyzer.py",
+      "bytes": 7230,
+      "sha256": "e51210ccc5bd6ed67fe97d80350b009e8c17579baa128ff585fb24538295e980"
+    },
+    {
+      "path": "ignition/SubstationSCADA_project.zip",
+      "bytes": 338505,
+      "sha256": "a4b68c26e9e66db1c23c46e085c8582a1ef18b676643c8663ea67b000e767e89"
+    },
+    {
+      "path": "ignition/Substation_tags.json",
+      "bytes": 45669,
+      "sha256": "b3bc47a50610d48d8858fbd86eb65303d01784725b2fdc7baea220e9ac4ab708"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/page-config/config.json",
+      "bytes": 564,
+      "sha256": "6e58dbe8912b7bcfe41c60a54b1ae1c3acd7ea437711d5de21d21d18246c965b"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/page-config/resource.json",
+      "bytes": 343,
+      "sha256": "56e73ff204bd16772489ebd10cc7ec87fcf9903c5a6c53ed92c64ef00eeb6b2f"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/session-permissions/data.bin",
+      "bytes": 291,
+      "sha256": "eb03f03cf1bb76a010876797bfe14dd84f0bd8c2e649b67c3fe034ff0affdba6"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/session-permissions/resource.json",
+      "bytes": 340,
+      "sha256": "77ef773291cb663ad2d064fe84d46e1ad948a77102cd320c26bed32bda80e247"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/session-props/props.json",
+      "bytes": 1382,
+      "sha256": "7255dc2a24aaef3b89f2d40e1bfa9013b6d65c90b63f8c376f432b4f24fc5c8d"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/session-props/resource.json",
+      "bytes": 342,
+      "sha256": "83fd6ec2009a216b0f112d2ca114d41d3691ebcd530b221692d68317bd787b99"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/AlarmHistory/resource.json",
+      "bytes": 362,
+      "sha256": "b8af02b3d3e37bc7eb27bf381d528b5bb95be91fec70df0aecfe61ab2c96180b"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/AlarmHistory/thumbnail.png",
+      "bytes": 106157,
+      "sha256": "9e14c4ef4545747d528e0b31edbc6346bc48b2b5208243bf80fb15a850406a07"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/AlarmHistory/view.json",
+      "bytes": 3527,
+      "sha256": "72afec6460c122e83cc41b390baac83a46e942f526727fcad94392ce0e1ade24"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Alarms/resource.json",
+      "bytes": 362,
+      "sha256": "d5085d08960d8e7b13833bf6d3d6eb7de7f04963851524dc5646ee5b963f0aaa"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Alarms/thumbnail.png",
+      "bytes": 53453,
+      "sha256": "999f71df358549af86cfd18c88fe4248ecb56aa53861a880016e1765c781dc11"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Alarms/view.json",
+      "bytes": 6034,
+      "sha256": "f3bd5822a2c8165f153679e3109ed6dbfb1995f84a4a9376e47b47df588476b3"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/CommandHistory/resource.json",
+      "bytes": 362,
+      "sha256": "c4b4192d21ba5f460b49861723ea41de817c1cef4ecc7fd50ca8f4ac54c9b8d0"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/CommandHistory/thumbnail.png",
+      "bytes": 65438,
+      "sha256": "b50c16ae8f3c468d7f7d66174262e0f0623de11ce45b1e461c1080ef04daaffa"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/CommandHistory/view.json",
+      "bytes": 4461,
+      "sha256": "acc94ce5c0f6a2635a9feeca0f9e2c896b4d41f8ff4e7175b271c9188b380e33"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Controls/resource.json",
+      "bytes": 362,
+      "sha256": "ae414e801b92fbe83800204eec027dfcfe4393cb5a7521ff3bc1e57d87a33a25"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Controls/thumbnail.png",
+      "bytes": 52082,
+      "sha256": "e88dea22b9e0c6f75b4397ce448f82cad372c043b52d4da060db226bb3d519dc"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Controls/view.json",
+      "bytes": 27810,
+      "sha256": "0ec2d2aa0f5f068be03c7f42a85145499d9d934dd93a4c45b2041bd4bd130476"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Overview/resource.json",
+      "bytes": 341,
+      "sha256": "326be5d1fae1440498fd22cdb67cf1e987210c487459730c8eef7c646bb0ad42"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Overview/view.json",
+      "bytes": 44959,
+      "sha256": "955cbad6544a98761143fa43ab7079d105d130d8d99dc314795c875c8b96fb24"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Trends/resource.json",
+      "bytes": 362,
+      "sha256": "c23cd494cfac4aece9e25d6e17a24b95dda66943fe274d1d378ce7980a71aa91"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Trends/thumbnail.png",
+      "bytes": 35782,
+      "sha256": "15fe703da84983032cea37f7f0e4b38b718785414912c4f06469d534f98f0545"
+    },
+    {
+      "path": "ignition/project/com.inductiveautomation.perspective/views/Trends/view.json",
+      "bytes": 10209,
+      "sha256": "148a1e61e969fe8dbcbe09dcbd7b150e01e417b0bd7d662acd5502a32a9839bd"
+    },
+    {
+      "path": "ignition/project/ignition/global-props/data.bin",
+      "bytes": 606,
+      "sha256": "1243bd837a0b9246c729d25b87fadd031024b7dacb435c2fc6e5096354639c4b"
+    },
+    {
+      "path": "ignition/project/ignition/global-props/resource.json",
+      "bytes": 340,
+      "sha256": "38feb87303db4527198203f6ce262691069f0ed0adbaf8736f2888d1e969e36e"
+    },
+    {
+      "path": "ignition/project/ignition/script-python/phase7_controls/code.py",
+      "bytes": 14986,
+      "sha256": "235c1952a6ac9b0999bbb7f10bbe4ee92f3130a2b772b546f929c8c882076b3a"
+    },
+    {
+      "path": "ignition/project/ignition/script-python/phase7_controls/resource.json",
+      "bytes": 359,
+      "sha256": "97e355e79790f04ccdeeaa8e950dff26c4ef025c630627984aa680830de59a45"
+    },
+    {
+      "path": "ignition/project/ignition/script-python/phase8_monitor/code.py",
+      "bytes": 16126,
+      "sha256": "8954e23baf9b4b90c3b1fb4977780fde4e482c2e5d7b5ed2e7594118a287cd57"
+    },
+    {
+      "path": "ignition/project/ignition/script-python/phase8_monitor/resource.json",
+      "bytes": 359,
+      "sha256": "d5c65c606db277d9ba40f05fcbd73e9d8a6f89824174920bd8a8b0f4af4ae40b"
+    },
+    {
+      "path": "ignition/project/ignition/timer/Phase8Health/handleTimerEvent.py",
+      "bytes": 47,
+      "sha256": "d085de0cce6222cd15bb79c08db14bf7fa09272fe35f25d4f28aeab26154074c"
+    },
+    {
+      "path": "ignition/project/ignition/timer/Phase8Health/resource.json",
+      "bytes": 442,
+      "sha256": "f2f14337a2cc01bf418f72ac2efe30a62730e4869d932e41f248029b75b1dacd"
+    },
+    {
+      "path": "ignition/project/project.json",
+      "bytes": 97,
+      "sha256": "40e828680f412ccf52dde5325671a6bf292be85e84f0a6b6346d21a025957ae7"
+    },
+    {
+      "path": "ignition/scripts/phase7_controls.py",
+      "bytes": 14986,
+      "sha256": "235c1952a6ac9b0999bbb7f10bbe4ee92f3130a2b772b546f929c8c882076b3a"
+    },
+    {
+      "path": "ignition/scripts/phase8_monitor.py",
+      "bytes": 16126,
+      "sha256": "8954e23baf9b4b90c3b1fb4977780fde4e482c2e5d7b5ed2e7594118a287cd57"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 35,
+      "sha256": "a630bb14388387f14666362a0676f251b94e805da3d6bcc71e4d18fcbdec3888"
+    },
+    {
+      "path": "simulator/config/points.json",
+      "bytes": 17964,
+      "sha256": "774c5521ee60baa592d2f518d345b2c6a00d41777bc9e95f4dc7b977143d9b8b"
+    },
+    {
+      "path": "simulator/config/substation.json",
+      "bytes": 7085,
+      "sha256": "48aa3382a8fa3e27a9bd334233322a5592cc2fd80b020e4f9a34e16e40b15a25"
+    },
+    {
+      "path": "simulator/modbus_points.py",
+      "bytes": 2493,
+      "sha256": "a9ea18e7573de3e4615fd9dc9ebffaacdbdc1be42af550bbc27309507aeabb37"
+    },
+    {
+      "path": "simulator/phase4_powerflow.py",
+      "bytes": 21335,
+      "sha256": "63e2bc267edca849edc47e5ca873dbec24b50616de6c971e8437fafe40b139e9"
+    },
+    {
+      "path": "simulator/phase5_client.py",
+      "bytes": 4210,
+      "sha256": "689f16b7a62f781002de302ceb591274d862aa65d7b6d10f348fc388952a843a"
+    },
+    {
+      "path": "simulator/phase5_modbus_server.py",
+      "bytes": 12678,
+      "sha256": "00982ad199e95df55d441ec15607243a521d386fe3284713c0d10b02974bdbda"
+    },
+    {
+      "path": "simulator/phase7_client.py",
+      "bytes": 6613,
+      "sha256": "6c8b96b717f428cd8e750089f30129a79d46edd179cdae285f8fb995115b6f08"
+    },
+    {
+      "path": "simulator/phase7_control.py",
+      "bytes": 8682,
+      "sha256": "0d64c45f67b8ce47fa5673052c8b034b541f2cbc361913636e4d97b6068a4ef3"
+    },
+    {
+      "path": "simulator/phase7_fault.py",
+      "bytes": 3492,
+      "sha256": "0c026baadd99671270e534accc550cc21a5e175e439d933f67272ab905d1af9f"
+    },
+    {
+      "path": "simulator/phase7_modbus_server.py",
+      "bytes": 12230,
+      "sha256": "d86251e21a3078d62e66e407acee4bee7f389d07d26caf141d80c1c4b4c59715"
+    },
+    {
+      "path": "simulator/phase8_freeze_demo.py",
+      "bytes": 2166,
+      "sha256": "2441e52c64059fcaff4036382f73c5dd851bf5149e66bda03d7039a8c474fb1a"
+    },
+    {
+      "path": "simulator/tests/verify_phase11.py",
+      "bytes": 23249,
+      "sha256": "4770afdcf78555c93c8c6dc3fbe0c7fbafb7247fcf2d4b2524618d2c03f0dc0c"
+    },
+    {
+      "path": "simulator/tests/verify_phase5.py",
+      "bytes": 8268,
+      "sha256": "4ea54c3d99850f20d95af5514b8468c689b6628fedba36416943b462513190c3"
+    },
+    {
+      "path": "simulator/tests/verify_phase7.py",
+      "bytes": 21319,
+      "sha256": "3c1b854ba978e362888b89c70db779e9896cdd8167c597ead7951e386599a1e2"
+    },
+    {
+      "path": "simulator/tests/verify_phase8.py",
+      "bytes": 21496,
+      "sha256": "fa50d62360c7d880d5d19409baf2a30ced3af8b9308b2eeb15de7e8163c7886e"
+    },
+    {
+      "path": "simulator/tests/verify_phase8_tcp.py",
+      "bytes": 5722,
+      "sha256": "73c475921acc8095546e53d9a21b5c0c565f81d6ab6399deaeabac5c5f8111da"
+    },
+    {
+      "path": "tools/check_project.py",
+      "bytes": 10145,
+      "sha256": "a940f1014522a19e46e87be1af32b5007897998cb5b07cf73fc7768500f80269"
+    },
+    {
+      "path": "validation/environment.json",
+      "bytes": 422,
+      "sha256": "a687d95c0ea659d5001fe34d3c00470c315417eefa8449ca4cae4a0b45a0790d"
+    },
+    {
+      "path": "validation/phase11_offline_verification.json",
+      "bytes": 394,
+      "sha256": "6eb5910538fc3e83fa0b196efe56061da964f326d0b75c05e7bb0b66ab3c311d"
+    },
+    {
+      "path": "validation/phase4_results.json",
+      "bytes": 32930,
+      "sha256": "44b02fbbedc9cc78f0cfbd0e78b7af3a6daba2f547f2db1e91ae2e219037344c"
+    },
+    {
+      "path": "validation/phase7_verification.json",
+      "bytes": 7522,
+      "sha256": "b22256486915907cfc7c9c8e5794ad536d43d83759119205c84e728a6dc451bb"
+    },
+    {
+      "path": "validation/phase8_tcp_verification.json",
+      "bytes": 1209,
+      "sha256": "2c287f4336b61beb14e2aa2acc99b2ae25d8e9891df6f9fb765ac526a9ded2bd"
+    },
+    {
+      "path": "validation/phase8_verification.json",
+      "bytes": 6914,
+      "sha256": "80695f88e977df89091728000dcb4b6321c165c2a7b5424c7e8b420e17e87088"
+    },
+    {
+      "path": "validation/project_static_checks.json",
+      "bytes": 11869,
+      "sha256": "449de528d0392e7c61b344a4425757c6053d2cdce40342401f0e138f9e526cfc"
+    },
+    {
+      "path": "validation/release_summary.json",
+      "bytes": 1073,
+      "sha256": "ed349697b0e6e45d082bb05fb4506cfe6ef0a4124effdb0939b30003b34c5388"
+    }
+  ]
+}

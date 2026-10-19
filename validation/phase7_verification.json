@@ -1,0 +1,277 @@
+{
+  "phase": 7,
+  "passed": true,
+  "time_utc": "2026-10-19T20:20:37.289953+00:00",
+  "python": "3.12.14",
+  "pandapower": "3.5.6",
+  "pymodbus": "3.16.1",
+  "fault_study": {
+    "bus": "BUS_13_8",
+    "fault": "3ph bolted",
+    "case": "max",
+    "contributions": "external grid only",
+    "bus_ikss_ka": 7.445176964725656,
+    "cb1_hv_current_a": 893.4212357670788,
+    "independent_bus_ikss_ka": 7.445176964725658,
+    "relative_error": 2.3859162083270994e-16,
+    "hv_current_basis": "LV Ikss referred by fixed T1 nominal turns ratio; radial single-source study"
+  },
+  "passed_checks": 63,
+  "total_checks": 63,
+  "checks": [
+    {
+      "name": "IEC 60909 result agrees with independent impedance calculation",
+      "passed": true
+    },
+    {
+      "name": "HV-referred fault current exceeds the configured 200 A pickup",
+      "passed": true
+    },
+    {
+      "name": "Open remains pending until its breaker movement delay",
+      "passed": true
+    },
+    {
+      "name": "Manual open completes on position feedback and trips grid-following PV",
+      "passed": true
+    },
+    {
+      "name": "Duplicate sequence does not execute a different staged command",
+      "passed": true
+    },
+    {
+      "name": "Fault immediately trips PV but does not bypass the OC delay",
+      "passed": true
+    },
+    {
+      "name": "OC delay operates the relay before the breaker physically opens",
+      "passed": true
+    },
+    {
+      "name": "Breaker opens after the additional movement delay",
+      "passed": true
+    },
+    {
+      "name": "Reset is rejected while fault remains",
+      "passed": true
+    },
+    {
+      "name": "Closing onto the enabled fault is rejected",
+      "passed": true
+    },
+    {
+      "name": "Removing the fault retains both trip latches and last-event current",
+      "passed": true
+    },
+    {
+      "name": "Trip latch blocks close after fault removal",
+      "passed": true
+    },
+    {
+      "name": "Reset clears latches without closing CB1 or enabling PV",
+      "passed": true
+    },
+    {
+      "name": "Close restores the breaker position without automatic PV restart",
+      "passed": true
+    },
+    {
+      "name": "Separate PV enable succeeds after grid restoration",
+      "passed": true
+    },
+    {
+      "name": "Local mode rejects an operator open command",
+      "passed": true
+    },
+    {
+      "name": "Automatic protection still operates in local mode",
+      "passed": true
+    },
+    {
+      "name": "A fault cancels a pending close before movement completes",
+      "passed": true
+    },
+    {
+      "name": "Clearing a short fault resets the definite-time pickup timer",
+      "passed": true
+    },
+    {
+      "name": "A subsequent sustained fault must satisfy its own full delay",
+      "passed": true
+    },
+    {
+      "name": "Invalid electrical model blocks close",
+      "passed": true
+    },
+    {
+      "name": "Invalid electrical model blocks PV start",
+      "passed": true
+    },
+    {
+      "name": "Remote stop and open remain available with invalid model",
+      "passed": true
+    },
+    {
+      "name": "Unknown command receives an acknowledged rejection",
+      "passed": true
+    },
+    {
+      "name": "Sequence rollover from 65535 to 0 works",
+      "passed": true
+    },
+    {
+      "name": "Reader retries HR/DI responses that straddle breaker opening and a solve",
+      "passed": true
+    },
+    {
+      "name": "Reader also retries changed diagnostics when heartbeat has not advanced",
+      "passed": true
+    },
+    {
+      "name": "Initial Phase 7 electrical publication is valid",
+      "passed": true
+    },
+    {
+      "name": "TCP connects to an isolated test server",
+      "passed": true
+    },
+    {
+      "name": "Existing normal telemetry and all status bits remain compatible",
+      "passed": true
+    },
+    {
+      "name": "Grouped reads retain the complete allocation and reserved zeros",
+      "passed": true
+    },
+    {
+      "name": "Telemetry and reserved addresses remain protected",
+      "passed": true
+    },
+    {
+      "name": "Invalid fault input rejects the entire multi-register write",
+      "passed": true
+    },
+    {
+      "name": "Atomic command commit exposes pending acknowledgement before movement",
+      "passed": true
+    },
+    {
+      "name": "A second pending command is rejected without overwriting its feedback",
+      "passed": true
+    },
+    {
+      "name": "Duplicate pending retry is harmless; open publishes valid downstream zeros",
+      "passed": true
+    },
+    {
+      "name": "Reset then close restores the bus with PV still stopped",
+      "passed": true
+    },
+    {
+      "name": "PV start restores the original operating point",
+      "passed": true
+    },
+    {
+      "name": "Writing only the payload does not operate equipment",
+      "passed": true
+    },
+    {
+      "name": "Separate FC6 code then sequence writes operate correctly",
+      "passed": true
+    },
+    {
+      "name": "Repeated completed sequence does not restart PV",
+      "passed": true
+    },
+    {
+      "name": "Local-mode rejection is visible through Modbus diagnostics",
+      "passed": true
+    },
+    {
+      "name": "Existing cloudy scenario still changes HMI telemetry",
+      "passed": true
+    },
+    {
+      "name": "Signed reactive setpoint/telemetry remains intact",
+      "passed": true
+    },
+    {
+      "name": "Energized fault holds ordinary analogs and marks normal power flow invalid",
+      "passed": true
+    },
+    {
+      "name": "Fault-suspended attempt advances heartbeat without publishing normal power flow",
+      "passed": true
+    },
+    {
+      "name": "Sustained fault trips CB1 and PV, retaining the fault while isolated",
+      "passed": true
+    },
+    {
+      "name": "Post-trip analogs represent known isolation; last fault is retained separately",
+      "passed": true
+    },
+    {
+      "name": "Fault-active close and reset interlocks work over TCP",
+      "passed": true
+    },
+    {
+      "name": "Fault removal does not bypass the breaker trip latch",
+      "passed": true
+    },
+    {
+      "name": "Reset clears latches without restoring supply",
+      "passed": true
+    },
+    {
+      "name": "Breaker close does not automatically restart PV",
+      "passed": true
+    },
+    {
+      "name": "Separate PV start completes full fault recovery",
+      "passed": true
+    },
+    {
+      "name": "Heartbeat advances without polling and fault-event current remains retained",
+      "passed": true
+    },
+    {
+      "name": "A solver failure is handled",
+      "passed": true
+    },
+    {
+      "name": "Failed solve holds analogs, advances heartbeat and clears validity",
+      "passed": true
+    },
+    {
+      "name": "Invalid-model close/start interlocks work over TCP",
+      "passed": true
+    },
+    {
+      "name": "A fresh successful solve recovers validity",
+      "passed": true
+    },
+    {
+      "name": "Slow electrical worker started",
+      "passed": true
+    },
+    {
+      "name": "Breaker control and Modbus remain responsive while solver is blocked",
+      "passed": true
+    },
+    {
+      "name": "Obsolete electrical worker result is discarded",
+      "passed": true
+    },
+    {
+      "name": "Stale solve cannot mark old energized measurements valid after opening",
+      "passed": true
+    },
+    {
+      "name": "A new solve for current topology publishes valid isolation",
+      "passed": true
+    }
+  ],
+  "error": null,
+  "scope": "Local Python/Modbus checks; actual Ignition UI still requires the Windows walkthrough."
+}

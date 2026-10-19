@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-10-19T20:27:58.071031+00:00",
+  "passed": true,
+  "suites": [
+    {
+      "report": "phase4_results.json",
+      "passed": true,
+      "checks_or_tests": 57
+    },
+    {
+      "report": "phase7_verification.json",
+      "passed": true,
+      "checks_or_tests": 63
+    },
+    {
+      "report": "phase8_verification.json",
+      "passed": true,
+      "checks_or_tests": 56
+    },
+    {
+      "report": "phase8_tcp_verification.json",
+      "passed": true,
+      "checks_or_tests": 9
+    },
+    {
+      "report": "phase11_offline_verification.json",
+      "passed": true,
+      "checks_or_tests": 34
+    },
+    {
+      "report": "../evidence/modbus/results/verification.json",
+      "passed": true,
+      "checks_or_tests": 15
+    },
+    {
+      "report": "project_static_checks.json",
+      "passed": true,
+      "checks_or_tests": 91
+    }
+  ],
+  "native_export_unchanged": true,
+  "tag_export_unchanged": true,
+  "python_application_source_unchanged": true,
+  "github_workflow": "Prepared; equivalent commands passed locally; no hosted run yet."
+}
